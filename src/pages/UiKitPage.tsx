@@ -9,6 +9,8 @@ import Logo from "../components/Logo/Logo";
 import SectionCard from "../components/SectionCard/SectionCard";
 import GoalItem from "../components/GoalItem/GoalItem";
 import BottomNavBar from "../components/BottomNavBar/BottomNavBar";
+import AddCardButton from "../components/AddCardButton/AddCardButton";
+import Avatar from "../components/Avatar/Avatar";
 
 export default function UiKitPage() {
   return (
@@ -182,6 +184,10 @@ export default function UiKitPage() {
       </section>
 
       <BottomNavBar />
+
+      <AddCardButton onClick={() => console.log('Добавить карту')} />
+
+      <Avatar src="/public/icons/avatar.svg" />
     </div>
   );
 }

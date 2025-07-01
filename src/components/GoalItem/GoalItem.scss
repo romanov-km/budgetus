@@ -1,15 +1,16 @@
+@import "../../styles/variables";
+
 .goal-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 14px 20px;
-    background-color: #fff;
+    padding: 20px 0px 10px;
+    background-color: $color-white;
     
     
     .icon-circle {
         width: 58px;
         height: 58px;
-        border: 2px solid #000;
+        border: 1px solid $color-black;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -17,22 +18,27 @@
     }
 
     .goal-info {
-        flex: 1;
-        margin-left: 12px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 8px;
+        
 
         .goal-title {
-            font-size: 20px;
-            font-weight: 500;
+            font-size: 21px;
+            font-weight: 400;
+            font-family: "Racama";
         }
 
         .goal-subtitle {
             font-size: 16px;
-            color: #000;
+            color: $color-black;
         }
     }
 
     .goal-percent {
         font-size: 24px;
-        font-weight: 600;
+        font-weight: 400;
+        font-family: "Racama";
+        margin-left: auto;
     }
 }
