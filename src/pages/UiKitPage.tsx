@@ -5,6 +5,7 @@ import Input from "../components/ui/Input";
 import Checkbox from "../components/ui/Checkbox";
 import BankCard from "../components/BankCard/BankCard";
 import ActionButton from "../components/ActionButton/ActionButton";
+import Logo from "../components/Logo/Logo";
 
 export default function UiKitPage() {
   return (
@@ -147,6 +148,13 @@ export default function UiKitPage() {
           />
         </div>
       </section>
+
+      <section style={{
+            maxWidth: 80,
+          }}>
+        <Logo />
+      </section>
+
     </div>
   );
 }
