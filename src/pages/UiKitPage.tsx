@@ -1,6 +1,7 @@
 import Icon from "../components/ui/Icon";
 import "../styles/uikit-page.scss";
 import Button from "../components/ui/Button";
+import Input from "../components/ui/Input";
 
 export default function UiKitPage() {
   return (
@@ -26,6 +27,8 @@ export default function UiKitPage() {
           <Icon name="headset-help" />
           <Icon name="fork-knife" />
           <Icon name="trash" />
+          <Icon name="email" />
+          <Icon name="eye-slash" />
         </div>
       </section>
 
@@ -33,7 +36,7 @@ export default function UiKitPage() {
         <h2>Типографика</h2>
         <div>
           <h1 style={{ fontSize: 44, fontFamily: "Racama" }}>Racama</h1>
-          <h2 style={{ fontSize: 28, fontFamily: "Gilroy" }}>Gilroy</h2>
+          <p style={{ fontSize: 28, fontFamily: "Montserrat" }}>Montserrat</p>
         </div>
       </section>
 
@@ -71,11 +74,36 @@ export default function UiKitPage() {
       <section>
         <h2>Кнопки</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <Button variant="primary">Login</Button>
-          <Button variant="dark">Login</Button>
+          <Button variant="primary">Войти</Button>
+          <Button variant="dark">Войти</Button>
         </div>
       </section>
-      
+
+      <section>
+        <h2>Поля ввода</h2>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 16,
+            maxWidth: 340,
+          }}
+        >
+          <Input label="User name" placeholder="Имя пользователя" icon="user" />
+          <Input
+            label="Email"
+            type="email"
+            placeholder="Почта"
+            icon="email"
+          />
+          <Input
+            label="Password"
+            placeholder="Пароль"
+            icon=""
+            toggleablePassword
+          />
+        </div>
+      </section>
     </div>
   );
 }

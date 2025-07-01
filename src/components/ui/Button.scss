@@ -3,7 +3,7 @@
 .btn {
   width: 342px;
   height: 60px;
-  font-family: $font-racama;
+  font-family: $font-main;
   font-size: 18px;
   font-weight: 400;
   border: none;
@@ -25,6 +25,6 @@
   }
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.6;
   }
 }
