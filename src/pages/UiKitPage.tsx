@@ -2,6 +2,7 @@ import Icon from "../components/ui/Icon";
 import "../styles/uikit-page.scss";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
+import Checkbox from "../components/ui/Checkbox";
 
 export default function UiKitPage() {
   return (
@@ -103,6 +104,11 @@ export default function UiKitPage() {
             toggleablePassword
           />
         </div>
+      </section>
+
+      <section>
+        <h2>Чекбокс</h2>
+        <Checkbox label="Запомнить меня" onChange={(val) => console.log('checked', val)} />
       </section>
     </div>
   );
