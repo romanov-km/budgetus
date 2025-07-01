@@ -3,6 +3,7 @@ import "../styles/uikit-page.scss";
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Checkbox from "../components/ui/Checkbox";
+import BankCard from "../components/BankCard/BankCard";
 
 export default function UiKitPage() {
   return (
@@ -91,12 +92,7 @@ export default function UiKitPage() {
           }}
         >
           <Input label="User name" placeholder="Имя пользователя" icon="user" />
-          <Input
-            label="Email"
-            type="email"
-            placeholder="Почта"
-            icon="email"
-          />
+          <Input label="Email" type="email" placeholder="Почта" icon="email" />
           <Input
             label="Password"
             placeholder="Пароль"
@@ -108,7 +104,18 @@ export default function UiKitPage() {
 
       <section>
         <h2>Чекбокс</h2>
-        <Checkbox label="Запомнить меня" onChange={(val) => console.log('checked', val)} />
+        <Checkbox
+          label="Запомнить меня"
+          onChange={(val) => console.log("checked", val)}
+        />
+      </section>
+      <section>
+      <h2>Карта</h2>
+        <BankCard
+          bankName="СБЕР БАНК"
+          amount="30 000 ₽"
+          actionIcon={<Icon name="arrow-up-right" />}
+        />
       </section>
     </div>
   );

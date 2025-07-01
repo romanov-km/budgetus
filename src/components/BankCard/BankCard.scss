@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+
+.bank-card {
+    width: 333px;
+    min-height: 192px;
+    padding: 20px;
+    border-radius: 14px;
+    background-color: $color-white;
+    border: 1.3px solid $color-black;
+  
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    &__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #27AE60; 
+      font-size: 20px;
+    }
+  
+    &__action {
+      cursor: pointer;
+    }
+    
+  
+    &__amount {
+      background-color: $color-accent;
+      padding: 7px 8px;
+      border-radius: 6px;
+      font-size: 32px;
+      font-weight: 400;
+      color: $color-black;
+      display: inline-block;
+      width: fit-content;
+      line-height: 110%;
+    }
+  
+    &__label {
+      font-size: 18px;
+      color: #000;
+      margin-top: 7px;
+    }
+  }
+  
