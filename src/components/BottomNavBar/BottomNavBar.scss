@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 3px;
+    background-color: $color-white;
+    border-radius: 100px;
+    border: 2px solid $color-black;
+    width: fit-content;
+    margin: 0 auto;
+    gap: 25px;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.nav-button.active {
+    border: 1px solid $color-black;
+    background-color: $color-accent;
+}

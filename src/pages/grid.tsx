@@ -10,7 +10,7 @@ import SectionCard from "../components/SectionCard/SectionCard";
 import GoalItem from "../components/GoalItem/GoalItem";
 import BottomNavBar from "../components/BottomNavBar/BottomNavBar";
 
-export default function UiKitPage() {
+export default function Grid() {
   return (
     <div className="uikit">
       <h1>UI Kit — Бюджетус</h1>
