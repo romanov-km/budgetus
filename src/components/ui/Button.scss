@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+
+.btn {
+  width: 342px;
+  height: 60px;
+  font-family: $font-racama;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.primary {
+    background-color: $color-accent;
+    color: $color-black;
+  }
+
+  &.dark {
+    background-color: $color-dark;
+    color: $color-white;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
