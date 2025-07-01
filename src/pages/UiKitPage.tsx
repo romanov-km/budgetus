@@ -6,6 +6,8 @@ import Checkbox from "../components/ui/Checkbox";
 import BankCard from "../components/BankCard/BankCard";
 import ActionButton from "../components/ActionButton/ActionButton";
 import Logo from "../components/Logo/Logo";
+import SectionCard from "../components/SectionCard/SectionCard";
+import GoalItem from "../components/GoalItem/GoalItem";
 
 export default function UiKitPage() {
   return (
@@ -149,12 +151,34 @@ export default function UiKitPage() {
         </div>
       </section>
 
-      <section style={{
-            maxWidth: 80,
-          }}>
+      <section
+        style={{
+          maxWidth: 80,
+        }}
+      >
         <Logo />
       </section>
 
+      <section
+        style={{
+          maxWidth: 368,
+          marginBottom: 10,
+        }}
+      >
+        <SectionCard title="Цели" bgColor="lime">
+          <GoalItem />
+        </SectionCard>
+      </section>
+      <section
+        style={{
+          maxWidth: 368,
+          marginBottom: 10,
+        }}
+      >
+        <SectionCard title="Лимиты" bgColor="dark">
+          <GoalItem />
+        </SectionCard>
+      </section>
     </div>
   );
 }

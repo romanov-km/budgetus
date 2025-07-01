@@ -1,7 +1,9 @@
+@import "./variables.scss";
+
 .uikit {
     padding: 27px;
     font-family: "Montserrat", sans-serif;
-    background-color: white;
+    background-color: $color-bg;
 
     h1 {
         font-family: 'Racama';

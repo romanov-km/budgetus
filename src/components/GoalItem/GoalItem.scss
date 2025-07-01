@@ -1,0 +1,38 @@
+.goal-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background-color: #fff;
+    
+    
+    .icon-circle {
+        width: 58px;
+        height: 58px;
+        border: 2px solid #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .goal-info {
+        flex: 1;
+        margin-left: 12px;
+
+        .goal-title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .goal-subtitle {
+            font-size: 16px;
+            color: #000;
+        }
+    }
+
+    .goal-percent {
+        font-size: 24px;
+        font-weight: 600;
+    }
+}

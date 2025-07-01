@@ -1,0 +1,52 @@
+@import "../../styles/variables";
+
+.section-wrapper {
+    border-radius: 12px;
+    background: $color-white;
+    overflow: hidden;
+  }
+
+.section-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    padding: 10px 10px;
+    width: 368px;
+    border: 1px solid $color-black;
+
+    &.lime {
+        background-color: $color-accent;
+        color: $color-black;
+    }
+
+    &.dark {
+        background-color: $color-black;
+        color: $color-white;
+    }
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 68%;
+    letter-spacing: -0.239px;
+}
+
+.icon-wrapper {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.lime {
+        background-color: $color-accent;
+    }
+
+    &.dark {
+        background-color: white;
+    }
+}

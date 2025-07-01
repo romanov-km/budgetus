@@ -4,7 +4,7 @@ interface IconProps {
   name: string; //имя иконки
   size?: number; // размер иконки в px
   className?: string; // дополнительные классы
-  colour?: string; // цвет иконки
+  color?: string; // цвет иконки
 }
 
 export default function Icon({ name, size = 24, className = "" }: IconProps) {
