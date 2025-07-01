@@ -4,6 +4,7 @@ import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
 import Checkbox from "../components/ui/Checkbox";
 import BankCard from "../components/BankCard/BankCard";
+import ActionButton from "../components/ActionButton/ActionButton";
 
 export default function UiKitPage() {
   return (
@@ -110,12 +111,41 @@ export default function UiKitPage() {
         />
       </section>
       <section>
-      <h2>Карта</h2>
+        <h2>Карта</h2>
         <BankCard
           bankName="СБЕР БАНК"
           amount="30 000 ₽"
           actionIcon={<Icon name="arrow-up-right" />}
         />
+      </section>
+
+      <section>
+        <h2>Экшн кнопки</h2>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 31,
+            maxWidth: 288,
+          }}
+        >
+          <ActionButton
+            icon={<Icon name="plus" size={18} />}
+            label="добавить операцию"
+          />
+          <ActionButton
+            icon={<Icon name="mic" size={18} />}
+            label="голосовой ввод"
+          />
+          <ActionButton
+            icon={<Icon name="scan-qr-code" size={18} />}
+            label="скан QR кода чека"
+          />
+          <ActionButton
+            icon={<Icon name="attach" size={18} />}
+            label="прикрепить чек"
+          />
+        </div>
       </section>
     </div>
   );
