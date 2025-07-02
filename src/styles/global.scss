@@ -23,8 +23,8 @@
 
 body {
     font-family: $font-main;
-    background: rgba(0, 0, 0, 0.3); /* затемнённый полупрозрачный фон */
-    backdrop-filter: blur(4.6px);   /* размытие заднего фона */
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4.6px);
     -webkit-backdrop-filter: blur(4.6px); /* для Safari */
     color: $color-black;
     min-height: 100dvh;

@@ -30,7 +30,7 @@ const LoginScreen = () => {
 
           <div className="login-footer">
             <span>Нет аккаунта?</span>
-            <a href="#">Зарегистрироваться</a>
+            <a href="/register">Зарегистрироваться</a>
           </div>
         </form>
       </div>
