@@ -4,11 +4,14 @@ import UiKitPage from './pages/UiKitPage'
 import Grid from './pages/grid'
 import LoginScreen from './pages/LoginScreen/LoginScreen'
 import RegisterScreen from './pages/RegisterScreen/RegisterScreen'
+import InstallPrompt from './components/InstallPrompt/InstallPrompt'
 
 function App() {
 
   return (
+    
    <BrowserRouter>
+    <InstallPrompt />
     <Routes>
       <Route path='/' element={<LoginScreen />} />
       <Route path='/uikit' element={<UiKitPage />} />
