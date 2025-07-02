@@ -23,7 +23,9 @@
 
 body {
     font-family: $font-main;
-    background-color: $color-bg;
+    background: rgba(0, 0, 0, 0.3); /* затемнённый полупрозрачный фон */
+    backdrop-filter: blur(4.6px);   /* размытие заднего фона */
+    -webkit-backdrop-filter: blur(4.6px); /* для Safari */
     color: $color-black;
     min-height: 100dvh;
 }
