@@ -1,4 +1,3 @@
-import React from "react";
 import "./LoginScreen.scss";
 import Logo from "../../components/Logo/Logo";
 import Input from "../../components/ui/Input";
