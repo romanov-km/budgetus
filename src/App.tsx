@@ -9,8 +9,8 @@ function App() {
 
   return (
    <BrowserRouter>
-   <LoginScreen></LoginScreen>
     <Routes>
+      <Route path='/' element={<LoginScreen />} />
       <Route path='/uikit' element={<UiKitPage />} />
       <Route path='/grid' element={<Grid />} />
       <Route path='/login' element={<LoginScreen />} />
