@@ -49,4 +49,18 @@
     &.dark {
         background-color: white;
     }
+    
+}
+
+.section-children {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .section-add-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }

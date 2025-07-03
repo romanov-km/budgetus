@@ -7,6 +7,7 @@ import GoalItem from "../../components/GoalItem/GoalItem";
 import SectionCard from "../../components/SectionCard/SectionCard";
 import Icon from "../../components/ui/Icon";
 import "./HomeScreen.scss";
+import { goals, limits } from "../../mock/mockData";
 
 const MainScreen = () => {
   return (
@@ -52,22 +53,20 @@ const MainScreen = () => {
         />
       </div>
       <div className="main-screen__goals">
-        <SectionCard title="Лимиты" bgColor="dark">
-          <GoalItem
-            iconName="car"
-            title="Автомобиль"
-            subtitle="Цель: 2 000 000 ₽"
-            percent={50}
-          />
+        <SectionCard
+          title="Цели"
+          bgColor="lime"
+          onAdd={() => console.log("Добавить цель")}
+        >
+          {goals.map((goal, index) => (
+            <GoalItem key={index} {...goal} />
+          ))}
         </SectionCard>
 
-        <SectionCard title="Цели" bgColor="lime">
-          <GoalItem
-            iconName="home-alt"
-            title="Квартира"
-            subtitle="Цель: 5 000 000 ₽"
-            percent={10}
-          />
+        <SectionCard title="Лимиты" bgColor="dark" onAdd={() => console.log("Добавить цель")}>
+          {limits.map((limit, index) => (
+            <GoalItem key={index} {...limit} />
+          ))}
         </SectionCard>
       </div>
 
