@@ -12,7 +12,7 @@ const MainScreen = () => {
   return (
     <div className="main-screen">
       <header className="main-screen__header">
-        <Avatar src="/public/icons/avatar.svg"></Avatar>
+        <Avatar src="/icons/avatar.svg"></Avatar>
         <h1 className="main-screen__greeting">Привет, Имя</h1>
         <div className="main-screen__icons">
           <button className="icon-button">
