@@ -14,7 +14,7 @@ export default defineConfig({
         name: 'Финбот',
         short_name: 'Финбот',
         description: 'Финансовый ассистент c ИИ',
-        theme_color: '#B7F665',
+        theme_color: '#b9fe66',
         background_color: '#ffffff',
         display: 'standalone',
         start_url: '/',
@@ -30,7 +30,7 @@ export default defineConfig({
             type: 'image/png',
           },
           {
-            src: '/pwa-icons/icon-512.png',
+            src: '/pwa-icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',
