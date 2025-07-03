@@ -11,10 +11,12 @@ import { goals, limits } from "../../mock/mockData";
 import { useState } from "react";
 import AddTransactionModal from "../../components/AddTransactionModal/AddTransactionModal";
 import VoiceModal from "../../components/VoiceModal/VoiceModal";
+import AddCardModal from "../../components/AddCardModal/AddCardModal";
 
 const MainScreen = () => {
   const [showModal, setShowModal] = useState(false);
   const [showVoiceModal, setShowVoiceModal] = useState(false);
+  const [showAddCardModal, setShowCardModal] = useState(false);
 
   return (
     <div className="main-screen">
@@ -27,6 +29,9 @@ const MainScreen = () => {
         onClose={() => setShowVoiceModal(false)}
         onStartRecording={() => console.log("Началась запись")}
       />
+      <AddCardModal  isOpen={showAddCardModal}
+        onClose={() => setShowCardModal(false)}
+        onStartRecording={() => console.log("Карта добавлена")} />
       <header className="main-screen__header">
         <Avatar src="/icons/avatar.svg" size={53}></Avatar>
         <h1 className="main-screen__greeting">Привет, Имя</h1>
@@ -46,7 +51,7 @@ const MainScreen = () => {
           amount="30 000 ₽"
           actionIcon={<Icon name="arrow-up-right" />}
         />
-        <AddCardButton onClick={() => console.log("Добавить карту")} />
+        <AddCardButton onClick={() => setShowCardModal(true)} />
       </section>
 
       <div className="main-screen__quick-actions">
