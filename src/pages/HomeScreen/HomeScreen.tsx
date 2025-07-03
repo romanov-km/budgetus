@@ -12,11 +12,13 @@ import { useState } from "react";
 import AddTransactionModal from "../../components/AddTransactionModal/AddTransactionModal";
 import VoiceModal from "../../components/VoiceModal/VoiceModal";
 import AddCardModal from "../../components/AddCardModal/AddCardModal";
+import AttachReceiptModal from "../../components/AttachReceiptModal/AttachReceiptModal";
 
 const MainScreen = () => {
   const [showModal, setShowModal] = useState(false);
   const [showVoiceModal, setShowVoiceModal] = useState(false);
   const [showAddCardModal, setShowCardModal] = useState(false);
+  const [showReceiptModal, setShowReceiptModal] = useState(false);
 
   return (
     <div className="main-screen">
@@ -31,7 +33,8 @@ const MainScreen = () => {
       />
       <AddCardModal  isOpen={showAddCardModal}
         onClose={() => setShowCardModal(false)}
-        onStartRecording={() => console.log("Карта добавлена")} />
+        onCardAdd={() => console.log("Карта добавлена")} />
+      <AttachReceiptModal isOpen={showReceiptModal} onClose={() => {setShowReceiptModal(false)}} />
       <header className="main-screen__header">
         <Avatar src="/icons/avatar.svg" size={53}></Avatar>
         <h1 className="main-screen__greeting">Привет, Имя</h1>
@@ -72,6 +75,7 @@ const MainScreen = () => {
         <ActionButton
           icon={<Icon name="attach" size={18} />}
           label="прикрепить чек"
+          onClick={() => setShowReceiptModal(true)}
         />
       </div>
       <div className="main-screen__goals">

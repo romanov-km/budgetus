@@ -1,0 +1,86 @@
+@import "../../styles/variables";
+
+.attach-receipt-modal__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4.599999904632568px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: env(safe-area-inset-bottom);
+}
+
+.attach-receipt-modal__container {
+  background: $color-white;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 480px;
+  padding: 20px 20px 60px;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+.attach-receipt-modal__close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+}
+
+.attach-receipt-modal__title {
+  font-size: 36px;
+  font-family: $font-racama;
+  font-weight: 400;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.attach-receipt-modal__label {
+  font-size: 14px;
+  color: $color-label;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.attach-receipt-modal__upload {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 24px 12px;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 24px;
+
+  svg, img {
+    margin-bottom: 8px;
+  }
+}
+
+.attach-receipt-modal__button {
+  width: 100%;
+  background-color: $color-accent;
+  color: $color-black;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

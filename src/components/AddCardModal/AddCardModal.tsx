@@ -7,9 +7,10 @@ import { bankOptions } from '../../mock/mockData'
 interface Props {
   isOpen: boolean;
   onClose: () => void;
+  onCardAdd: () => void;
 }
 
-export default function AddCardModal({ isOpen, onClose }: Props) {
+export default function AddCardModal({ isOpen, onClose, onCardAdd }: Props) {
   if (!isOpen) return null;
 
   return (
@@ -26,7 +27,7 @@ export default function AddCardModal({ isOpen, onClose }: Props) {
         <form className="modal__form">
           <Select label="Название банка" options={bankOptions} name="bank" />
 
-            <Button>Добавить</Button>
+            <Button onClick={onCardAdd}>Добавить</Button>
         </form>
       </div>
     </div>
