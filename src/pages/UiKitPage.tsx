@@ -11,6 +11,8 @@ import GoalItem from "../components/GoalItem/GoalItem";
 import BottomNavBar from "../components/BottomNavBar/BottomNavBar";
 import AddCardButton from "../components/AddCardButton/AddCardButton";
 import Avatar from "../components/Avatar/Avatar";
+import Select from "../components/ui/Select";
+import {bankOptions, categoryOptions} from "../mock/mockData"
 
 export default function UiKitPage() {
   return (
@@ -105,6 +107,11 @@ export default function UiKitPage() {
             placeholder="Пароль"
             icon=""
             toggleablePassword
+          />
+          <Select
+            label="Название банка"
+            name="bank"
+            options={bankOptions}
           />
         </div>
       </section>

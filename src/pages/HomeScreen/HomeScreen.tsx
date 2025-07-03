@@ -8,10 +8,16 @@ import SectionCard from "../../components/SectionCard/SectionCard";
 import Icon from "../../components/ui/Icon";
 import "./HomeScreen.scss";
 import { goals, limits } from "../../mock/mockData";
+import { useState } from "react";
+import AddTransactionModal from "../../components/AddTransactionModal/AddTransactionModal";
 
 const MainScreen = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
+    
     <div className="main-screen">
+      <AddTransactionModal isOpen={showModal} onClose={() => setShowModal(false)} />
       <header className="main-screen__header">
         <Avatar src="/icons/avatar.svg" size={53}></Avatar>
         <h1 className="main-screen__greeting">Привет, Имя</h1>
@@ -38,6 +44,7 @@ const MainScreen = () => {
         <ActionButton
           icon={<Icon name="plus" size={18} />}
           label="добавить операцию"
+          onClick={() => setShowModal(true)}
         />
         <ActionButton
           icon={<Icon name="mic" size={18} />}

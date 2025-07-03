@@ -28,3 +28,13 @@ export const goals = [
     },
   ];
   
+
+  export const bankOptions = [
+    { label: "Тинькофф", value: "tinkoff" },
+    { label: "Сбербанк", value: "sber" },
+  ];
+  
+  export const categoryOptions = [
+    { label: "Продукты", value: "groceries" },
+    { label: "Транспорт", value: "transport" },
+  ];
