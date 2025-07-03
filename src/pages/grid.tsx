@@ -167,7 +167,10 @@ export default function Grid() {
         }}
       >
         <SectionCard title="Цели" bgColor="lime">
-          <GoalItem />
+          <GoalItem iconName="car"
+          title="Автомобиль"
+          subtitle="Цель: 2 000 000 ₽"
+          percent={50}/>
         </SectionCard>
       </section>
       <section
@@ -177,7 +180,10 @@ export default function Grid() {
         }}
       >
         <SectionCard title="Лимиты" bgColor="dark">
-          <GoalItem />
+          <GoalItem iconName="car"
+          title="Автомобиль"
+          subtitle="Цель: 2 000 000 ₽"
+          percent={50}/>
         </SectionCard>
       </section>
 

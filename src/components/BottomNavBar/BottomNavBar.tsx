@@ -4,7 +4,7 @@ import './BottomNavBar.scss';
 import Icon from '../ui/Icon';
 
 const navItems = [
-  { to: '/uikit', icon: 'home-alt', label: 'Главная' },
+  { to: '/home', icon: 'home-alt', label: 'Главная' },
   { to: '/grid', icon: 'view-grid', label: 'Операции' },
   { to: '/stats', icon: 'reports', label: 'Статистика' },
   { to: '/profile', icon: 'user', label: 'Профиль' },

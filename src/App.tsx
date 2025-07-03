@@ -6,22 +6,33 @@ import LoginScreen from './pages/LoginScreen/LoginScreen'
 import RegisterScreen from './pages/RegisterScreen/RegisterScreen'
 import InstallPrompt from './components/InstallPrompt/InstallPrompt'
 import HomeScreen from './pages/HomeScreen/HomeScreen'
+import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 function App() {
 
   return (
-    
+  <AuthProvider>
    <BrowserRouter>
     <InstallPrompt />
     <Routes>
       <Route path='/' element={<LoginScreen />} />
       <Route path='/uikit' element={<UiKitPage />} />
-      <Route path='/home' element={<HomeScreen />}/>
+      <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <HomeScreen />
+              </ProtectedRoute>
+            }
+          />
       <Route path='/grid' element={<Grid />} />
       <Route path='/login' element={<LoginScreen />} />
       <Route path='/register' element={<RegisterScreen />} />
+      <Route path="*" element={<LoginScreen />} />
     </Routes>
    </BrowserRouter>
+   </AuthProvider>
   )
 }
 

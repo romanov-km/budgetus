@@ -3,8 +3,19 @@ import Logo from "../../components/Logo/Logo";
 import Input from "../../components/ui/Input";
 import Checkbox from "../../components/ui/Checkbox";
 import Button from "../../components/ui/Button";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const RegisterScreen = () => {
+  const navigate = useNavigate();
+  const {login} = useAuth();
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault();
+    // регистрация = логин
+    login();
+    navigate("/home");
+  };
+
   return (
     <div className="register-screen">
       <div className="register-card">
@@ -14,7 +25,7 @@ const RegisterScreen = () => {
 
         <h1 className="register-title">Регистрация</h1>
 
-        <form className="register-form">
+        <form className="register-form" onSubmit={handleRegister}>
           <Input placeholder="Имя пользователя" icon="user" />
           <Input type="email" placeholder="Почта" icon="email" />
           <Input placeholder="Пароль" icon="" toggleablePassword />

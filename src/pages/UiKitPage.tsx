@@ -169,7 +169,12 @@ export default function UiKitPage() {
         }}
       >
         <SectionCard title="Цели" bgColor="lime">
-          <GoalItem />
+          <GoalItem
+            iconName="car"
+            title="Автомобиль"
+            subtitle="Цель: 2 000 000 ₽"
+            percent={50}
+          />
         </SectionCard>
       </section>
       <section
@@ -179,13 +184,18 @@ export default function UiKitPage() {
         }}
       >
         <SectionCard title="Лимиты" bgColor="dark">
-          <GoalItem />
+          <GoalItem
+            iconName="home-alt"
+            title="Квартира"
+            subtitle="Цель: 5 000 000 ₽"
+            percent={10}
+          />
         </SectionCard>
       </section>
 
       <BottomNavBar />
 
-      <AddCardButton onClick={() => console.log('Добавить карту')} />
+      <AddCardButton onClick={() => console.log("Добавить карту")} />
 
       <Avatar src="/public/icons/avatar.svg" />
     </div>
