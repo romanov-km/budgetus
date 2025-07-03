@@ -23,6 +23,9 @@
   padding: 20px 20px 60px;
   position: relative;
   animation: slideUp 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .attach-receipt-modal__close {
@@ -50,30 +53,19 @@
 }
 
 .attach-receipt-modal__upload {
-  border: 2px dashed #ccc;
-  border-radius: 12px;
-  padding: 24px 12px;
+  border: 1px dashed #4F4F4F;
+  border-radius: 20px;
+  padding: 20px;
   text-align: center;
-  color: #888;
-  font-size: 14px;
+  color: $color-label;
+  font-size: 16px;
   cursor: pointer;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
+  width: 75vw;
 
   svg, img {
     margin-bottom: 8px;
   }
-}
-
-.attach-receipt-modal__button {
-  width: 100%;
-  background-color: $color-accent;
-  color: $color-black;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 15px 0;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
 }
 
 @keyframes slideUp {
