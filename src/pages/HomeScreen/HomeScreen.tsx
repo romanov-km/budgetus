@@ -13,15 +13,28 @@ import AddTransactionModal from "../../components/AddTransactionModal/AddTransac
 import VoiceModal from "../../components/VoiceModal/VoiceModal";
 import AddCardModal from "../../components/AddCardModal/AddCardModal";
 import AttachReceiptModal from "../../components/AttachReceiptModal/AttachReceiptModal";
+import QRScanner from "../../components/QRScanner/QRScanner";
 
 const MainScreen = () => {
   const [showModal, setShowModal] = useState(false);
   const [showVoiceModal, setShowVoiceModal] = useState(false);
   const [showAddCardModal, setShowCardModal] = useState(false);
   const [showReceiptModal, setShowReceiptModal] = useState(false);
+  const [showQRScanner, setShowQRScanner] = useState(false);
+  const [scannedValue, setScannedValue] = useState("");
 
   return (
     <div className="main-screen">
+     {showQRScanner && (
+  <QRScanner
+    onScan={(data) => {
+      setScannedValue(data);
+      setShowQRScanner(false);
+      console.log("QR найден:", data);
+    }}
+    onClose={() => setShowQRScanner(false)}
+  />
+)}
       <AddTransactionModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
@@ -71,6 +84,7 @@ const MainScreen = () => {
         <ActionButton
           icon={<Icon name="scan-qr-code" size={18} />}
           label="скан QR кода чека"
+          onClick={() => setShowQRScanner(true)}
         />
         <ActionButton
           icon={<Icon name="attach" size={18} />}
