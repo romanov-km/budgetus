@@ -20,6 +20,13 @@
   cursor: pointer;
 }
 
+.qr-reader-container {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
 .qr-title {
   font-size: 36px;
   font-family: $font-racama;
@@ -36,7 +43,16 @@
   margin: 0 auto;
   width: 260px;
   height: 260px;
-  border: 2px dashed #aaa;
+  //border: 2px dashed #aaa;
   border-radius: 12px;
   overflow: hidden;
 }
+.qr-frame-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+  }
