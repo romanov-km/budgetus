@@ -1,0 +1,75 @@
+@import "../../styles/variables";
+
+.voice-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4.599999904632568px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: env(safe-area-inset-bottom); // для iPhone
+}
+
+.voice-modal__container {
+  background: $color-white;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 480px;
+  padding: 24px 20px 60px;
+  text-align: center;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+}
+
+.voice-modal__close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+}
+
+.voice-modal__title {
+  font-size: 36px;
+  font-family: $font-racama;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.voice-modal__mic-button {
+  background: $color-accent;
+  border: none;
+  border-radius: 50%;
+  width: 66px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 21px;
+  border: 1px solid $color-black;
+}
+
+.voice-modal__subtitle {
+  font-size: 14px;
+  font-family: $font-main;
+  color: $color-label;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

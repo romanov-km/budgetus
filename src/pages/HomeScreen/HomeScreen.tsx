@@ -10,14 +10,23 @@ import "./HomeScreen.scss";
 import { goals, limits } from "../../mock/mockData";
 import { useState } from "react";
 import AddTransactionModal from "../../components/AddTransactionModal/AddTransactionModal";
+import VoiceModal from "../../components/VoiceModal/VoiceModal";
 
 const MainScreen = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showVoiceModal, setShowVoiceModal] = useState(false);
 
   return (
-    
     <div className="main-screen">
-      <AddTransactionModal isOpen={showModal} onClose={() => setShowModal(false)} />
+      <AddTransactionModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      />
+      <VoiceModal
+        isOpen={showVoiceModal}
+        onClose={() => setShowVoiceModal(false)}
+        onStartRecording={() => console.log("Началась запись")}
+      />
       <header className="main-screen__header">
         <Avatar src="/icons/avatar.svg" size={53}></Avatar>
         <h1 className="main-screen__greeting">Привет, Имя</h1>
@@ -49,6 +58,7 @@ const MainScreen = () => {
         <ActionButton
           icon={<Icon name="mic" size={18} />}
           label="голосовой ввод"
+          onClick={() => setShowVoiceModal(true)}
         />
         <ActionButton
           icon={<Icon name="scan-qr-code" size={18} />}
@@ -70,7 +80,11 @@ const MainScreen = () => {
           ))}
         </SectionCard>
 
-        <SectionCard title="Лимиты" bgColor="dark" onAdd={() => console.log("Добавить цель")}>
+        <SectionCard
+          title="Лимиты"
+          bgColor="dark"
+          onAdd={() => console.log("Добавить цель")}
+        >
           {limits.map((limit, index) => (
             <GoalItem key={index} {...limit} />
           ))}
