@@ -12,7 +12,7 @@ const MainScreen = () => {
   return (
     <div className="main-screen">
       <header className="main-screen__header">
-        <Avatar src="/icons/avatar.svg"></Avatar>
+        <Avatar src="/icons/avatar.svg" size={53}></Avatar>
         <h1 className="main-screen__greeting">Привет, Имя</h1>
         <div className="main-screen__icons">
           <button className="icon-button">
@@ -51,26 +51,29 @@ const MainScreen = () => {
           label="прикрепить чек"
         />
       </div>
+      <div className="main-screen__goals">
+        <SectionCard title="Лимиты" bgColor="dark">
+          <GoalItem
+            iconName="car"
+            title="Автомобиль"
+            subtitle="Цель: 2 000 000 ₽"
+            percent={50}
+          />
+        </SectionCard>
 
-      <SectionCard title="Лимиты" bgColor="dark">
-        <GoalItem
-          iconName="car"
-          title="Автомобиль"
-          subtitle="Цель: 2 000 000 ₽"
-          percent={50}
-        />
-      </SectionCard>
+        <SectionCard title="Цели" bgColor="lime">
+          <GoalItem
+            iconName="home-alt"
+            title="Квартира"
+            subtitle="Цель: 5 000 000 ₽"
+            percent={10}
+          />
+        </SectionCard>
+      </div>
 
-      <SectionCard title="Цели" bgColor="lime">
-        <GoalItem
-          iconName="home-alt"
-          title="Квартира"
-          subtitle="Цель: 5 000 000 ₽"
-          percent={10}
-        />
-      </SectionCard>
-
-      <BottomNavBar />
+      <div className="main-screen__navbar">
+        <BottomNavBar />
+      </div>
     </div>
   );
 };
