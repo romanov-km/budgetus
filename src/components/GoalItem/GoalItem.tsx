@@ -2,17 +2,24 @@ import React from "react";
 import "./GoalItem.scss";
 import Icon from "../ui/Icon";
 
-const GoalItem: React.FC = () => {
+interface GoalItemProps {
+  iconName: string;
+  title: string;
+  subtitle: string;
+  percent: number;
+}
+
+const GoalItem: React.FC<GoalItemProps> = ({iconName, title, subtitle, percent}) => {
   return (
     <div className="goal-item">
       <div className="icon-circle">
-        <Icon name="car" size={28} />
+        <Icon name={iconName} size={28} />
       </div>
       <div className="goal-info">
-        <div className="goal-title">Автомобиль</div>
-        <div className="goal-subtitle">Цель: 2 000 000 ₽</div>
+        <div className="goal-title">{title}</div>
+        <div className="goal-subtitle">{subtitle}</div>
       </div>
-      <div className="goal-percent">50 %</div>
+      <div className="goal-percent">{percent} %</div>
     </div>
   );
 };

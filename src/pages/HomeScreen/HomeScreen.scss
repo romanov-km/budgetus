@@ -1,0 +1,58 @@
+@import '../../styles/variables';
+
+.main-screen {
+  padding: 20px 16px 80px; // отступ снизу под BottomNavBar
+  background-color: #f5f5f5;
+  min-height: 100vh;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+
+    .main-screen__greeting {
+      font-size: 20px;
+      font-weight: 600;
+      margin-left: 12px;
+      flex: 1;
+    }
+
+    .main-screen__icons {
+      display: flex;
+      gap: 10px;
+
+      button {
+        background: none;
+        border: none;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__bank {
+    position: relative;
+    margin-bottom: 24px;
+
+    .add-card-button {
+      position: absolute;
+      top: 50%;
+      right: -12px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+
+    > * {
+      flex: 1 1 calc(50% - 6px); // по 2 в ряд с отступами
+    }
+  }
+}
