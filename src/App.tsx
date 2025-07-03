@@ -26,8 +26,9 @@ function App() {
               </ProtectedRoute>
             }
           />
-      <Route path='/grid' element={<Grid />} />
-      <Route path='/login' element={<LoginScreen />} />
+      <Route path='/grid' element={<HomeScreen />} />
+      <Route path='/stats' element={<HomeScreen />} />
+      <Route path='/login' element={<HomeScreen />} />
       <Route path='/register' element={<RegisterScreen />} />
       <Route path="*" element={<LoginScreen />} />
     </Routes>
