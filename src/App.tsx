@@ -1,7 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UiKitPage from './pages/UiKitPage'
-import Grid from './pages/grid'
 import LoginScreen from './pages/LoginScreen/LoginScreen'
 import RegisterScreen from './pages/RegisterScreen/RegisterScreen'
 import InstallPrompt from './components/InstallPrompt/InstallPrompt'
