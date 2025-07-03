@@ -25,16 +25,18 @@ const MainScreen = () => {
 
   return (
     <div className="main-screen">
-     {showQRScanner && (
-  <QRScanner
-    onScan={(data) => {
-      setScannedValue(data);
-      setShowQRScanner(false);
-      console.log("QR найден:", data);
-    }}
-    onClose={() => setShowQRScanner(false)}
-  />
-)}
+      {showQRScanner && (
+        <QRScanner
+          onScan={(data) => {
+            setScannedValue(data);
+            setShowQRScanner(false);
+            console.log("QR найден:", scannedValue);
+            console.log("QR найден:", data);
+          }}
+          onClose={() => setShowQRScanner(false)}
+        />
+        
+      )}
       <AddTransactionModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
@@ -44,10 +46,17 @@ const MainScreen = () => {
         onClose={() => setShowVoiceModal(false)}
         onStartRecording={() => console.log("Началась запись")}
       />
-      <AddCardModal  isOpen={showAddCardModal}
+      <AddCardModal
+        isOpen={showAddCardModal}
         onClose={() => setShowCardModal(false)}
-        onCardAdd={() => console.log("Карта добавлена")} />
-      <AttachReceiptModal isOpen={showReceiptModal} onClose={() => {setShowReceiptModal(false)}} />
+        onCardAdd={() => console.log("Карта добавлена")}
+      />
+      <AttachReceiptModal
+        isOpen={showReceiptModal}
+        onClose={() => {
+          setShowReceiptModal(false);
+        }}
+      />
       <header className="main-screen__header">
         <Avatar src="/icons/avatar.svg" size={53}></Avatar>
         <h1 className="main-screen__greeting">Привет, Имя</h1>
