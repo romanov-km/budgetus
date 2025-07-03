@@ -12,7 +12,7 @@ import BottomNavBar from "../components/BottomNavBar/BottomNavBar";
 import AddCardButton from "../components/AddCardButton/AddCardButton";
 import Avatar from "../components/Avatar/Avatar";
 import Select from "../components/ui/Select";
-import {bankOptions, categoryOptions} from "../mock/mockData"
+import {bankOptions} from "../mock/mockData"
 
 export default function UiKitPage() {
   return (
