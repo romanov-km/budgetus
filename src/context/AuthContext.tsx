@@ -37,7 +37,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const getStoredUsers = (): User[] => {
     const stored = localStorage.getItem("users");
-    return stored ? JSON.parse(stored) : [];
+    const localUsers: User[] = stored ? JSON.parse(stored) : [];
+    return [...mockUsers, ...localUsers];
   };
 
   const login = (username: string, password: string): boolean => {
