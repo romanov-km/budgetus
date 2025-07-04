@@ -8,6 +8,7 @@ import HomeScreen from './pages/HomeScreen/HomeScreen'
 import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import CategoryScreen from './pages/CategoryScreen/CategoryScreen'
+import ProfileScreen from './pages/ProfileScreen/ProfileScreen'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route path="/home" element={<HomeScreen />} />
         <Route path="/category" element={<CategoryScreen />} />
+        <Route path="/profile" element={<ProfileScreen />} />
       </Route>
       
       <Route path="*" element={<LoginScreen />} />

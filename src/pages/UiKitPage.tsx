@@ -14,6 +14,7 @@ import Avatar from "../components/Avatar/Avatar";
 import Select from "../components/ui/Select";
 import {bankOptions} from "../mock/mockData"
 import CategoryList from "../components/CategoryList/CategoryList";
+import ProfileAction from "../components/ProfileAction/ProfileAction";
 
 export default function UiKitPage() {
   return (
@@ -208,6 +209,14 @@ export default function UiKitPage() {
       <Avatar src="/public/icons/avatar.svg" />
 
       <CategoryList></CategoryList>
+
+      <div className="profile-screen">
+      <ProfileAction icon="user" label="Мой аккаунт" onClick={() => console.log('Аккаунт')} />
+      <ProfileAction icon="settings" label="Настройки" />
+      <ProfileAction icon="headset-help" label="Поддержка" />
+      <ProfileAction icon="log-out" label="Выход" />
+      <ProfileAction icon="cloud-upload" label="Поделиться" />
+    </div>
     </div>
   );
 }

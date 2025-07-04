@@ -4,20 +4,19 @@
     height: 100dvh;
     width: 100dvw;
     align-items: center;
-    background-color: #f7f7f7;
+    background-color: $color-bg;
 
     &__title {
         font-size: 32px;
         font-weight: 400;
         font-family: $font-racama;
         font-style: normal;
-        line-height: 63.804%;
+        line-height: 65%;
         letter-spacing: -0.25px;
     }
 
     .back-button {
         border: none;
-        border-radius: 50%;
         padding: 10px;
         display: flex;
         align-items: center;
