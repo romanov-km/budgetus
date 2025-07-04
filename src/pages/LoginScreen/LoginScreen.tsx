@@ -5,15 +5,22 @@ import Checkbox from "../../components/ui/Checkbox";
 import Button from "../../components/ui/Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useState } from "react";
 
 const LoginScreen = () => {
   const navigate = useNavigate();
   const {login} = useAuth();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    login();
-    navigate('/home');
+    if (username === '123' && password === '123') {
+      login();               
+      navigate('/home');    
+    } else {
+      alert('Неверный логин или пароль');
+    }
   }
   return (
     <div className="login-screen">
@@ -25,8 +32,8 @@ const LoginScreen = () => {
         <h1 className="login-title">Войдите в аккаунт</h1>
 
         <form className="login-form" onSubmit={handleLogin}>
-          <Input placeholder="Имя пользователя" icon="user" />
-          <Input placeholder="Пароль" icon="" toggleablePassword />
+          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setUsername(e.target.value)}/>
+          <Input placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)}/>
 
           <div className="login-checkbox">
           <Checkbox
