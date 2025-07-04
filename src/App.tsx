@@ -9,6 +9,7 @@ import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import CategoryScreen from './pages/CategoryScreen/CategoryScreen'
 import ProfileScreen from './pages/ProfileScreen/ProfileScreen'
+import StatisticScreen from './pages/StatisticScreen/StatisticScreen'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/home" element={<HomeScreen />} />
         <Route path="/category" element={<CategoryScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/statistic" element={<StatisticScreen />} />
       </Route>
       
       <Route path="*" element={<LoginScreen />} />

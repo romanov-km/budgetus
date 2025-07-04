@@ -1,0 +1,63 @@
+.filter-select {
+    position: relative;
+    display: inline-block;
+  
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border: 1px solid black;
+      border-radius: 12px;
+      background-color: white;
+      cursor: pointer;
+      font-size: 16px;
+      min-width: 160px;
+      color: $color-black;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 93.75%;
+      letter-spacing: -0.407px;
+    }
+  
+    &__icon {
+      background: $color-accent;
+      padding: 4px;
+      border-radius: 8px;
+      margin-left: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    &__dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 12px;
+      list-style: none;
+      padding: 6px 0;
+      width: 100%;
+      z-index: 1000;
+    }
+  
+    &__option {
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+  
+      &:hover {
+        background-color: #f3f3f3;
+      }
+  
+      &.active {
+        background-color: #eee;
+        font-weight: 500;
+      }
+    }
+  }
+  

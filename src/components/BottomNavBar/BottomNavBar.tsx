@@ -6,7 +6,7 @@ import Icon from '../ui/Icon';
 const navItems = [
   { to: '/home', icon: 'home-alt', label: 'Главная' },
   { to: '/category', icon: 'view-grid', label: 'Категории' },
-  { to: '/stats', icon: 'reports', label: 'Статистика' },
+  { to: '/statistic', icon: 'reports', label: 'Статистика' },
   { to: '/profile', icon: 'user', label: 'Профиль' },
 ];
 

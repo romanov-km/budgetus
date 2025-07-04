@@ -1,0 +1,56 @@
+.statistic-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    width: 100dvw;
+    align-items: center;
+    background-color: $color-bg;
+
+    &__main {
+        display: flex;
+        flex-direction: row;
+        gap: 20px
+    }
+
+    &__title {
+        font-size: 32px;
+        font-weight: 400;
+        font-family: $font-racama;
+        font-style: normal;
+        line-height: 65%;
+        letter-spacing: -0.25px;
+    }
+
+    .back-button {
+        border: none;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__grid {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+.statistic-screen__header {
+    padding-top: 65px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.back-button {
+    position: absolute;
+    left: 0px;
+}
+
+ .bottom-nav {
+    position: fixed;
+    bottom: 0;
+   }
