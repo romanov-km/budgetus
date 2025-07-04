@@ -1,7 +1,7 @@
 .statistic-screen {
     display: flex;
     flex-direction: column;
-    height: 100dvh;
+    min-height: 100dvh;
     width: 100dvw;
     align-items: center;
     background-color: $color-bg;
@@ -76,7 +76,3 @@
     left: 0px;
 }
 
- .bottom-nav {
-    position: fixed;
-    bottom: 0;
-   }

@@ -1,10 +1,12 @@
 .categories-screen {
     display: flex;
     flex-direction: column;
-    height: 100dvh;
-    width: 100dvw;
+    min-height: 100dvh;
+    //width: 100dvw;
     align-items: center;
     background-color: $color-bg;
+    padding-bottom: 80px;
+    
 
     &__title {
         font-size: 32px;
@@ -42,9 +44,4 @@
 .back-button {
     position: absolute;
     left: 0px;
-}
-
- .bottom-nav {
-    position: fixed;
-    bottom: 0;
-   }
+}  

@@ -1,6 +1,6 @@
 .bottom-nav {
-    position: sticky;
-    bottom: 0;
+    position: fixed;
+    bottom: 2%;
     background-color: #fff;
     height: 60px;
     display: flex;
@@ -13,8 +13,10 @@
     border: 1px solid $color-black;
     gap: 25px;
     height: fit-content;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 15%;
+    //transform: translateX(-50%);
+    padding: 3px;
+    width: 263px;
 }
 
 .nav-button {

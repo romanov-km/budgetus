@@ -2,7 +2,7 @@
 
     position: relative;
     min-height: 100vh;
-    //padding-top: 13px;
+    padding-top: 13px;
     padding-bottom: 80px;
 
     &__header,
@@ -92,10 +92,10 @@
         gap: 32px;
     }
 
-    &__navbar {
-        padding-top: 6px;
-        display: flex;
-        justify-content: center;
-    }
+    // &__navbar {
+    //     padding-top: 6px;
+    //     display: flex;
+    //     justify-content: center;
+    // }
 }
 
