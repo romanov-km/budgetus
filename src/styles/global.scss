@@ -21,10 +21,10 @@
 
 body {
     font-family: $font-main;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(4.6px);
+    background: $color-bg;;
+    //backdrop-filter: blur(4.6px);
     -webkit-backdrop-filter: blur(4.6px); /* для Safari */
     color: $color-black;
-    min-height: 100dvh;
-    overflow-x: hidden;
+    //min-height: 100dvh;
+    //overflow-x: hidden;
 }

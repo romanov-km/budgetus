@@ -114,7 +114,7 @@ const MainScreen = () => {
             <GoalItem key={index} {...goal} />
           ))}
         </SectionCard>
-
+        
         <SectionCard
           title="Лимиты"
           bgColor="dark"
@@ -124,11 +124,12 @@ const MainScreen = () => {
             <GoalItem key={index} {...limit} />
           ))}
         </SectionCard>
+        
       </div>
 
-      <div className="main-screen__navbar">
-        <BottomNavBar />
-      </div>
+      
+        
+      <BottomNavBar />
     </div>
   );
 };
