@@ -23,11 +23,17 @@ const SectionCard: React.FC<SectionCardProps> = ({ title, bgColor, children, onA
         <Icon name="arrow-up-right" size={20} color={isLime ? '#fff' : '#000'} />
       </div>
     </div>
-    {isOpen && <div className="section-children">{children} {onAdd && (
-            <div className="section-add-button">
-              <AddCardButton onClick={onAdd} />
-            </div>
-          )}</div>}
+    {isOpen && (
+  <div className="section-children">
+    {children}
+
+    {React.Children.count(children) === 0 && onAdd && (
+      <div className="section-add-button">
+        <AddCardButton onClick={onAdd} />
+      </div>
+    )}
+  </div>
+)}
     </div>
   );
 };

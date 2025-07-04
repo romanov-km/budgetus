@@ -10,6 +10,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import CategoryScreen from './pages/CategoryScreen/CategoryScreen'
 import ProfileScreen from './pages/ProfileScreen/ProfileScreen'
 import StatisticScreen from './pages/StatisticScreen/StatisticScreen'
+import NotificationsScreen from './pages/NotificationsScreen/NotificationsScreen'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/category" element={<CategoryScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />
         <Route path="/statistic" element={<StatisticScreen />} />
+        <Route path="/notification" element={<NotificationsScreen />} />
       </Route>
       
       <Route path="*" element={<LoginScreen />} />

@@ -8,6 +8,13 @@ import SectionCard from "../../components/SectionCard/SectionCard";
 import Icon from "../../components/ui/Icon";
 import "./HomeScreen.scss";
 import { goals, limits } from "../../mock/mockData";
+
+interface GoalItemData {
+  iconName: string;
+  title: string;
+  subtitle: string;
+  percent: number;
+}
 import { useState } from "react";
 import AddTransactionModal from "../../components/AddTransactionModal/AddTransactionModal";
 import VoiceModal from "../../components/VoiceModal/VoiceModal";
@@ -15,6 +22,7 @@ import AddCardModal from "../../components/AddCardModal/AddCardModal";
 import AttachReceiptModal from "../../components/AttachReceiptModal/AttachReceiptModal";
 import QRScanner from "../../components/QRScanner/QRScanner";
 import { useAuth } from "../../context/AuthContext";
+import { NavLink } from "react-router-dom";
 
 const MainScreen = () => {
   const [showModal, setShowModal] = useState(false);
@@ -66,9 +74,12 @@ const MainScreen = () => {
           <button className="icon-button">
             <Icon name="settings" />
           </button>
+          <NavLink to="/notification">
           <button className="icon-button">
             <Icon name="bell" />
           </button>
+          </NavLink>
+          
         </div>
       </header>
 
@@ -114,13 +125,13 @@ const MainScreen = () => {
             <GoalItem key={index} {...goal} />
           ))}
         </SectionCard>
-        
+      
         <SectionCard
           title="Лимиты"
           bgColor="dark"
           onAdd={() => console.log("Добавить цель")}
         >
-          {limits.map((limit, index) => (
+          {limits.length > 0 && limits.map((limit: GoalItemData, index) => (
             <GoalItem key={index} {...limit} />
           ))}
         </SectionCard>

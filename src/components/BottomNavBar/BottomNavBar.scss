@@ -1,6 +1,6 @@
 .bottom-nav {
     position: fixed;
-    bottom: 2%;
+    bottom: 10px;
     background-color: #fff;
     height: 60px;
     display: flex;
@@ -9,7 +9,6 @@
     border-top: 1px solid #ddd;
     z-index: 50;
     border-radius: 100px;
-    margin-bottom: 20px;
     border: 1px solid $color-black;
     gap: 25px;
     height: fit-content;
