@@ -39,9 +39,24 @@ export const goals = [
     { label: "Транспорт", value: "transport" },
   ];
 
-  export const categories = [
+  export const mockCategories = [
     { name: "супермаркет", icon: "shopping-cart", color: "#FFD9A0", badge: 10 },
     { name: "транспорт", icon: "tour-bus", color: "#BDB6FF" },
     { name: "зоотовары", icon: "bone", color: "#69D6FF" },
     { name: "образование", icon: "bachelor-cap", color: "#7EFF9C" },
+  ];
+
+  export const mockUsers = [
+    {
+      username: '123',
+      password: '123',
+      name: 'Фиджи',
+      email: 'lupapupa@gmail.com',
+    },
+    {
+      username: 'admin',
+      password: 'admin',
+      name: 'Админ',
+      email: 'admin@yandex.ru',
+    },
   ];

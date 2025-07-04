@@ -1,7 +1,7 @@
 import "./AddTransactionModal.scss";
 import Select from "../ui/Select";
 import Input from "../ui/Input";
-import Button from "../ui/Button"; // если есть
+import Button from "../ui/Button";
 import Icon from "../ui/Icon";
 import { bankOptions, categoryOptions } from '../../mock/mockData'
 

@@ -8,7 +8,7 @@ import { useAuth } from '../../context/AuthContext';
 
 const ProfileScreen = () => {
   const navigate = useNavigate();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
 
   const handleLogout = () => {
     logout();                 // 1. сброс авторизации
@@ -26,8 +26,8 @@ const ProfileScreen = () => {
 
       <div className="profile-screen__user">
         <Avatar src="/icons/avatar.svg" size={96} />
-        <div className="profile-screen__name">Фиджи</div>
-        <div className="profile-screen__email">lupapupa@gmail.com</div>
+        <div className="profile-screen__name">{user?.name ?? 'гость'}</div>
+        <div className="profile-screen__email">{user?.email ?? 'email'}</div>
       </div>
 
       <div className="profile-screen__actions">

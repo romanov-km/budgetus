@@ -15,9 +15,9 @@ const LoginScreen = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (username === '123' && password === '123') {
-      login();               
-      navigate('/home');    
+    const success = login(username, password);
+    if (success) {
+      navigate('/home');   
     } else {
       alert('Неверный логин или пароль');
     }

@@ -14,6 +14,7 @@ import VoiceModal from "../../components/VoiceModal/VoiceModal";
 import AddCardModal from "../../components/AddCardModal/AddCardModal";
 import AttachReceiptModal from "../../components/AttachReceiptModal/AttachReceiptModal";
 import QRScanner from "../../components/QRScanner/QRScanner";
+import { useAuth } from "../../context/AuthContext";
 
 const MainScreen = () => {
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +23,7 @@ const MainScreen = () => {
   const [showReceiptModal, setShowReceiptModal] = useState(false);
   const [showQRScanner, setShowQRScanner] = useState(false);
   const [scannedValue, setScannedValue] = useState("");
+  const { user } = useAuth();
 
   return (
     <div className="main-screen">
@@ -59,7 +61,7 @@ const MainScreen = () => {
       />
       <header className="main-screen__header">
         <Avatar src="/icons/avatar.svg" size={53}></Avatar>
-        <h1 className="main-screen__greeting">Привет, Имя</h1>
+        <h1 className="main-screen__greeting">Привет, {user?.name ?? 'гость'}</h1>
         <div className="main-screen__icons">
           <button className="icon-button">
             <Icon name="settings" />
@@ -80,6 +82,11 @@ const MainScreen = () => {
       </section>
 
       <div className="main-screen__quick-actions">
+      <ActionButton
+          icon={<Icon name="scan-qr-code" size={18} />}
+          label="скан QR кода чека"
+          onClick={() => setShowQRScanner(true)}
+        />
         <ActionButton
           icon={<Icon name="plus" size={18} />}
           label="добавить операцию"
@@ -90,11 +97,7 @@ const MainScreen = () => {
           label="голосовой ввод"
           onClick={() => setShowVoiceModal(true)}
         />
-        <ActionButton
-          icon={<Icon name="scan-qr-code" size={18} />}
-          label="скан QR кода чека"
-          onClick={() => setShowQRScanner(true)}
-        />
+        
         <ActionButton
           icon={<Icon name="attach" size={18} />}
           label="прикрепить чек"
