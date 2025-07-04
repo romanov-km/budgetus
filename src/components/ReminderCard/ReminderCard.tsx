@@ -1,4 +1,3 @@
-import React from "react";
 import "./ReminderCard.scss";
 import Icon from "../ui/Icon";
 
