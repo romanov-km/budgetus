@@ -13,6 +13,7 @@ import AddCardButton from "../components/AddCardButton/AddCardButton";
 import Avatar from "../components/Avatar/Avatar";
 import Select from "../components/ui/Select";
 import {bankOptions} from "../mock/mockData"
+import CategoryList from "../components/CategoryList/CategoryList";
 
 export default function UiKitPage() {
   return (
@@ -205,6 +206,8 @@ export default function UiKitPage() {
       <AddCardButton onClick={() => console.log("Добавить карту")} />
 
       <Avatar src="/public/icons/avatar.svg" />
+
+      <CategoryList></CategoryList>
     </div>
   );
 }

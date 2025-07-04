@@ -7,6 +7,7 @@ import InstallPrompt from './components/InstallPrompt/InstallPrompt'
 import HomeScreen from './pages/HomeScreen/HomeScreen'
 import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import CategoryScreen from './pages/CategoryScreen/CategoryScreen'
 
 function App() {
 
@@ -16,19 +17,13 @@ function App() {
     <InstallPrompt />
     <Routes>
       <Route path='/' element={<LoginScreen />} />
-      <Route path='/uikit' element={<UiKitPage />} />
-      <Route
-            path="/home"
-            element={
-              <ProtectedRoute>
-                <HomeScreen />
-              </ProtectedRoute>
-            }
-          />
-      <Route path='/grid' element={<HomeScreen />} />
-      <Route path='/stats' element={<HomeScreen />} />
-      <Route path='/login' element={<HomeScreen />} />
       <Route path='/register' element={<RegisterScreen />} />
+      <Route path='/uikit' element={<UiKitPage />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/home" element={<HomeScreen />} />
+        <Route path="/category" element={<CategoryScreen />} />
+      </Route>
+      
       <Route path="*" element={<LoginScreen />} />
     </Routes>
    </BrowserRouter>

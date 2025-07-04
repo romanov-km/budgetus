@@ -1,0 +1,44 @@
+.category-card {
+    position: relative;
+    max-width: 174px;
+    max-height: 108px;
+    border: 2px solid $color-black;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    background-color: $color-white;
+  
+    &__icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 8px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    &__label {
+      font-family: $font-main;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 112.5%;
+      letter-spacing: -0.407px;
+      padding-bottom: 9px;
+    }
+  
+    &__badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #00A3FF;
+      color: white;
+      font-size: 12px;
+      border-radius: 10px;
+      padding: 2px 6px;
+      font-weight: bold;
+    }
+  }
+  
