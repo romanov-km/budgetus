@@ -20,7 +20,7 @@ const QRScanner: React.FC<QRScannerProps> = ({ onScan, onClose }) => {
         // Найдем заднюю камеру (если возможно)
         const backCamera = devices.find((d) =>
           d.label.toLowerCase().includes("back")
-        ) || devices[0]; // иначе первая доступная
+        ) || devices[1]; // иначе первая доступная
 
         const html5QrCode = new Html5Qrcode("qr-reader");
         html5QrCodeRef.current = html5QrCode;
