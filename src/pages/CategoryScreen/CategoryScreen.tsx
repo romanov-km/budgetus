@@ -31,7 +31,7 @@ const CategoriesScreen: React.FC = () => {
     const handleAddCategory = (newCategory: { name: string; icon: string }) => {
       if (
         newCategory.name.trim() &&
-        !categories.find((c) => c.name === newCategory.name)
+        !categories.find((c: Category) => c.name === newCategory.name)
       ) {
         setCategories([...categories, newCategory]);
       }

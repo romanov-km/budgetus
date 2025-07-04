@@ -6,6 +6,7 @@ type User = {
   username: string;
   name: string;
   email: string;
+  password: string;
 };
 
 type AuthContextType = {
@@ -13,6 +14,7 @@ type AuthContextType = {
   user: User | null;
   login: (username: string, password: string) => boolean;
   logout: () => void;
+  register: (data: { username: string; email: string; password: string }) => boolean;
 };
 
 const AuthContext = createContext<AuthContextType>({
@@ -20,6 +22,7 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   login: () => false,
   logout: () => {},
+  register: () => false,
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -32,11 +35,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return stored ? JSON.parse(stored) : null;
   });
 
+  const getStoredUsers = (): User[] => {
+    const stored = localStorage.getItem("users");
+    return stored ? JSON.parse(stored) : [];
+  };
+
   const login = (username: string, password: string): boolean => {
-    const foundUser = mockUsers.find(
+    const users = getStoredUsers();
+    const foundUser = users.find(
       (user) => user.username === username && user.password === password
     );
-
+  
     if (foundUser) {
       setIsAuth(true);
       setUser(foundUser);
@@ -44,8 +53,43 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       localStorage.setItem("user", JSON.stringify(foundUser));
       return true;
     }
-
+  
     return false;
+  };
+
+  const register = ({
+    username,
+    email,
+    password,
+  }: {
+    username: string;
+    email: string;
+    password: string;
+  }): boolean => {
+    const users = getStoredUsers();
+  
+    const exists = users.some(
+      (user) => user.username === username || user.email === email
+    );
+  
+    if (exists) return false;
+  
+    const newUser: User = {
+      username,
+      name: username, // можно заменить потом
+      email,
+      password,
+    };
+  
+    const updatedUsers = [...users, newUser];
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  
+    setIsAuth(true);
+    setUser(newUser);
+    localStorage.setItem("isAuth", "true");
+    localStorage.setItem("user", JSON.stringify(newUser));
+  
+    return true;
   };
 
   const logout = () => {
@@ -56,7 +100,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuth, login, logout, user }}>
+    <AuthContext.Provider value={{ isAuth, login, logout, user, register }}>
       {children}
     </AuthContext.Provider>
   );
