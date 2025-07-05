@@ -9,15 +9,16 @@ interface SectionCardProps {
   bgColor: 'lime' | 'dark';
   children?: React.ReactNode;
   onAdd?: () => void;
+  onClick: () => void;
 }
 
-const SectionCard: React.FC<SectionCardProps> = ({ title, bgColor, children, onAdd }) => {
+const SectionCard: React.FC<SectionCardProps> = ({ title, bgColor, children, onAdd, onClick }) => {
   const isLime = bgColor === 'lime';
   const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div className="section-wrapper">
-    <div className={`section-card ${bgColor}`}>
+    <div className={`section-card ${bgColor}`} onClick={onClick}>
       <span className="section-title">{title}</span>
       <div className={`icon-wrapper ${isLime ? 'dark' : 'lime'}`} onClick={() => setIsOpen(!isOpen)}>
         <Icon name="arrow-up-right" size={20} color={isLime ? '#fff' : '#000'} />
@@ -29,7 +30,7 @@ const SectionCard: React.FC<SectionCardProps> = ({ title, bgColor, children, onA
 
     {React.Children.count(children) === 0 && onAdd && (
       <div className="section-add-button">
-        <AddCardButton onClick={onAdd} />
+        <AddCardButton onAdd={onAdd}/>
       </div>
     )}
   </div>

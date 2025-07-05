@@ -13,6 +13,7 @@ import StatisticScreen from "./pages/StatisticScreen/StatisticScreen";
 import NotificationsScreen from "./pages/NotificationsScreen/NotificationsScreen";
 import OperationsScreen from "./pages/OperationScreen/OperationScreen";
 import { TransactionProvider } from "./context/TransactionContext";
+import GoalAndLimitScreen from "./pages/GoalAndLimitsScreen/GoalAndLimitScreen";
 
 function App() {
   return (
@@ -31,8 +32,8 @@ function App() {
               <Route path="/statistic" element={<StatisticScreen />} />
               <Route path="/notification" element={<NotificationsScreen />} />
               <Route path="/operations" element={<OperationsScreen />} />
+              <Route path="/goalandlimit" element={<GoalAndLimitScreen /> } />
             </Route>
-
             <Route path="*" element={<LoginScreen />} />
           </Routes>
         </BrowserRouter>

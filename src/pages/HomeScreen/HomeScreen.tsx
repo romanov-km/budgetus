@@ -121,7 +121,7 @@ const MainScreen = () => {
         <SectionCard
           title="Цели"
           bgColor="lime"
-          onAdd={() => console.log("Добавить цель")}
+          onClick={() => navigate('/goalandlimit')}
         >
           {goals.map((goal, index) => (
             <GoalItem key={index} {...goal} />
@@ -131,7 +131,7 @@ const MainScreen = () => {
         <SectionCard
           title="Лимиты"
           bgColor="dark"
-          onAdd={() => console.log("Добавить цель")}
+          onClick={() => navigate('/goalandlimit')}
         >
           {limits.length > 0 && limits.map((limit: GoalItemData, index) => (
             <GoalItem key={index} {...limit} />
