@@ -1,4 +1,4 @@
-.modal-backdrop {
+.exit-modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,7 +13,7 @@
     padding: env(safe-area-inset-bottom); // для iPhone
 }
 
-.modal-container {
+.exit-modal-container {
     background: #fff;
     border-radius: 20px 20px 0 0;
     width: 100%;
@@ -26,7 +26,7 @@
     & h2 {
         text-align: center;
     }
-    .modal__header {
+    .exit-modal__header {
         display: flex;
         flex-direction: column;
         
@@ -42,7 +42,7 @@
             margin-top: 40px;
         }
 
-        .modal__close {
+        .exit-modal__close {
             position: absolute;
             right: 20px;
             background: none;
@@ -52,7 +52,7 @@
     }
 }
 
-.modal__form {
+.exit-modal__form {
     display: flex;
     flex-direction: row;
     align-items: center;
