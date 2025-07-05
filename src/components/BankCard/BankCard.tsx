@@ -6,11 +6,12 @@ interface BankCardProps {
   amount: string;
   icon?: React.ReactNode;
   actionIcon?: React.ReactNode;
+  onClick?: () => void;
 }
 
-const BankCard: React.FC<BankCardProps> = ({ bankName, amount, icon, actionIcon }) => {
+const BankCard: React.FC<BankCardProps> = ({ bankName, amount, icon, actionIcon, onClick}) => {
   return (
-    <div className="bank-card">
+    <div className="bank-card" onClick={onClick}>
       <div className="bank-card__top">
         <div className="bank-card__logo">
           {icon && <span className="bank-card__icon">{icon}</span>}

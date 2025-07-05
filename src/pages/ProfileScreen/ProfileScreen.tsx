@@ -18,7 +18,7 @@ const ProfileScreen = () => {
   return (
     <div className="profile-screen">
       <header className="profile-screen__header">
-        <button className="back-button" onClick={() => navigate(-1)}>
+        <button className="back-button" onClick={() => navigate("/home")}>
           <Icon name="chevron-left" />
         </button>
         <h1 className="profile-screen__title">Профиль</h1>

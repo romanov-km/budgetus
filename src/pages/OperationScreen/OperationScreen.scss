@@ -1,0 +1,137 @@
+.statistic-screen {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    width: 100dvw;
+    align-items: center;
+    background-color: $color-bg;
+    padding-bottom: 80px;
+
+    &__main {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 32px;
+        gap: 20px
+    }
+    &__analys {
+        display: flex;
+        align-self: self-start;
+        padding: 11px;
+    }
+
+    &__analyse {
+        padding: 11px;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-title {
+        background-color: $color-accent; // ярко-зелёный
+        border-radius: 5px;
+        padding: 7px 13px;
+        display: inline-block;
+        font-family: $font-racama;
+        font-size: 28px;
+        font-weight: 400;
+        font-style: normal;
+        color: $color-black;
+        align-self: flex-start;
+      }
+
+    &__title {
+        font-size: 32px;
+        font-weight: 400;
+        font-family: $font-racama;
+        font-style: normal;
+        line-height: 65%;
+        letter-spacing: -0.25px;
+    }
+
+    .back-button {
+        border: none;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__grid {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+.statistic-screen__header {
+    padding-top: 65px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.back-button {
+    position: absolute;
+    left: 0px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .transaction-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .transaction-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .transaction-details {
+    flex-grow: 1;
+  }
+  
+  .transaction-category {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .transaction-bank {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .transaction-amount {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .transaction-date {
+    font-size: 13px;
+    color: #888;
+  }
+  
+  .transaction-group {
+    margin-bottom: 24px;
+  }
+  
+  .transaction-date-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px 0;
+    color: #333;
+  }

@@ -20,7 +20,7 @@ const StatisticScreen: React.FC = () => {
   return (
     <div className="statistic-screen">
       <div className="statistic-screen__header">
-        <button className="back-button" onClick={() => navigate(-1)}>
+        <button className="back-button" onClick={() => navigate("/home")}>
           <Icon name="chevron-left" />
         </button>
         <div className="statistic-screen__progress">

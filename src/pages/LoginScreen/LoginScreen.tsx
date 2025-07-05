@@ -12,6 +12,7 @@ const LoginScreen = () => {
   const {login} = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const isDisabled = !username.trim() || !password.trim();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,8 +33,8 @@ const LoginScreen = () => {
         <h1 className="login-title">Войдите в аккаунт</h1>
 
         <form className="login-form" onSubmit={handleLogin}>
-          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setUsername(e.target.value)}/>
-          <Input placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)}/>
+          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setUsername(e.target.value)} required/>
+          <Input placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)} required/>
 
           <div className="login-checkbox">
           <Checkbox
@@ -43,7 +44,7 @@ const LoginScreen = () => {
           </div>
           
 
-          <Button variant="primary">Войти</Button>
+          <Button variant="primary" disabled={isDisabled}>Войти</Button>
 
           <div className="login-footer">
             <span>Нет аккаунта?</span>

@@ -13,6 +13,9 @@ const RegisterScreen = () => {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
   const { register } = useAuth();
+  const [consent, setConsent] = useState(false);
+  const isDisabled = !username.trim() || !password.trim() || !email.trim() || !consent;
+
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -34,18 +37,19 @@ const RegisterScreen = () => {
         <h1 className="register-title">Регистрация</h1>
 
         <form className="register-form" onSubmit={handleRegister}>
-          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setUsername(e.target.value)}/>
-          <Input type="email" placeholder="Почта" icon="email" onChange={(e) => setEmail(e.target.value)}/>
-          <Input placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)}/>
+          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setUsername(e.target.value)} required/>
+          <Input type="email" placeholder="Почта" icon="email" onChange={(e) => setEmail(e.target.value)} required/>
+          <Input placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)} required/>
 
           <div className="register-checkbox">
             <Checkbox
               label="Даю согласие на обработку данных"
-              onChange={(val) => console.log("checked", val)}
+              onChange={(val) => setConsent(val)}
             />
+            
           </div>
 
-          <Button variant="primary">Зарегистрироваться</Button>
+          <Button variant="primary" disabled={isDisabled}>Зарегистрироваться</Button>
         </form>
       </div>
     </div>

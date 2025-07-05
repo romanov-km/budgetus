@@ -22,7 +22,7 @@ import AddCardModal from "../../components/AddCardModal/AddCardModal";
 import AttachReceiptModal from "../../components/AttachReceiptModal/AttachReceiptModal";
 import QRScanner from "../../components/QRScanner/QRScanner";
 import { useAuth } from "../../context/AuthContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const MainScreen = () => {
   const [showModal, setShowModal] = useState(false);
@@ -32,6 +32,7 @@ const MainScreen = () => {
   const [showQRScanner, setShowQRScanner] = useState(false);
   const [scannedValue, setScannedValue] = useState("");
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="main-screen">
@@ -88,6 +89,7 @@ const MainScreen = () => {
           bankName="СБЕР БАНК"
           amount="30 000 ₽"
           actionIcon={<Icon name="arrow-up-right" />}
+          onClick={() => navigate('/operations')}
         />
         <AddCardButton onClick={() => setShowCardModal(true)} />
       </section>
