@@ -42,7 +42,6 @@ const LoginScreen = () => {
             onChange={(val) => console.log("checked", val)}
           />
           </div>
-          
 
           <Button variant="primary" disabled={isDisabled}>Войти</Button>
 
