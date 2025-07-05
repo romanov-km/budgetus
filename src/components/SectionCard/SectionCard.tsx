@@ -8,15 +8,13 @@ interface SectionCardProps {
   title: string;
   bgColor: "lime" | "dark";
   children?: React.ReactNode;
-  onAdd?: () => void;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const SectionCard: React.FC<SectionCardProps> = ({
   title,
   bgColor,
   children,
-  onAdd,
   onClick,
 }) => {
   const isLime = bgColor === "lime";
