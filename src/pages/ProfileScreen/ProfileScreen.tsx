@@ -5,18 +5,24 @@ import BottomNavBar from '../../components/BottomNavBar/BottomNavBar';
 import ProfileAction from '../../components/ProfileAction/ProfileAction';
 import './ProfileScreen.scss';
 import { useAuth } from '../../context/AuthContext';
+import ExitModal from '../../components/ExitModal/ExitModal';
+import { useState } from 'react';
 
 const ProfileScreen = () => {
   const navigate = useNavigate();
   const { logout, user } = useAuth();
-
+  const [showExitModal, setShowExitModal] = useState(false);
   const handleLogout = () => {
     logout();                 // 1. сброс авторизации
     navigate('/login');      // 2. переход на страницу логина
   };
 
+
   return (
+     
+
     <div className="profile-screen">
+      <ExitModal isOpen={showExitModal} onClose={() => setShowExitModal(false)} onCancel={() => setShowExitModal(false)} onLogout={() => handleLogout()}/>
       <header className="profile-screen__header">
         <button className="back-button" onClick={() => navigate("/home")}>
           <Icon name="chevron-left" />
@@ -35,7 +41,7 @@ const ProfileScreen = () => {
         <ProfileAction icon="settings" label="Настройки" />
         <ProfileAction icon="headset-help" label="Поддержка" />
         <ProfileAction icon="cloud-upload" label="Поделиться" />
-        <ProfileAction icon="log-out" label="Выход" onClick={handleLogout}/>
+        <ProfileAction icon="log-out" label="Выход" onClick={() => {setShowExitModal(true)}}/>
       </div>
 
       <BottomNavBar />
