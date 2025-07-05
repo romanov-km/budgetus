@@ -1,11 +1,8 @@
 import "./AddLimitModal.scss";
-import Select from "../ui/Select";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Icon from "../ui/Icon";
-import { bankOptions } from "../../mock/mockData";
-import { useTransactions } from "../../context/TransactionContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Props {
   isOpen: boolean;

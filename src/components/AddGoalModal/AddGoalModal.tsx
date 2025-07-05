@@ -2,7 +2,7 @@ import "./AddGoalModal.scss";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import Icon from "../ui/Icon";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Props {
   isOpen: boolean;
@@ -12,7 +12,7 @@ interface Props {
 export default function AddGoalModal({ isOpen, onClose }: Props) {
   const [date, setDate] = useState<string>("");
   const [amount, setAmount] = useState("");
-  const [goal, setGoal] = useState();
+  const [goal, setGoal] = useState("");
 
   if (!isOpen) return null;
 
