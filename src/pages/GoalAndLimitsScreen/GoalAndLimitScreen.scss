@@ -10,10 +10,13 @@
     &__main {
         display: flex;
         flex-direction: column;
+        align-self: first baseline;
         gap: 32px
     }
     &__analys {
         display: flex;
+        gap: 20px;
+        flex-direction: column;
         align-self: self-start;
         padding: 11px;
     }
