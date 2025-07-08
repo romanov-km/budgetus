@@ -33,7 +33,7 @@ const InstallPrompt: React.FC = () => {
   return (
     <div className="install-banner">
       <p>
-        Установи <strong>Финбот</strong> на устройство
+        Установи <strong>Бюджетус</strong> на устройство
       </p>
       <button onClick={handleInstallClick}>Установить</button>
     </div>

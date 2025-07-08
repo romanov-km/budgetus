@@ -12,8 +12,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Финбот',
-        short_name: 'Финбот',
+        name: 'Бюджетус',
+        short_name: 'Бюджетус',
         description: 'Финансовый ассистент c ИИ',
         theme_color: '#b9fe66',
         background_color: '#ffffff',
