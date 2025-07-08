@@ -18,15 +18,16 @@ const iconOptions = [
   "tour-bus",
   "bone",
   "shopping-cart",
-  "bell",
+  "barbell",
+  "book",
+  "ball",
   "plane",
   "fork-knife",
-  "car",
-  "cloud-upload",
-  "email",
-  "mic",
-  "reports",
-  "trash",
+  "shampoo",
+  "bachelor-cap",
+  "t-shirt",
+  "health",
+  "car"
 ];
 
 export default function AddCategoryModal({
