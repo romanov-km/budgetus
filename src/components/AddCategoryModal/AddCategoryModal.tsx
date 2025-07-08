@@ -60,7 +60,16 @@ export default function AddCategoryModal({
   };
 
   const handleBack = () => {
-    if (step > 1) setStep(step - 1);
+    switch (step) {
+      case 3:
+        setStep(2);
+        break;
+      case 2:
+        setStep(1);
+        break;
+      default:
+        break;
+    }
   };
 
   if (!isOpen) return null;
