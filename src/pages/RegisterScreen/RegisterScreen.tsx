@@ -4,7 +4,6 @@ import Input from "../../components/ui/Input";
 import Checkbox from "../../components/ui/Checkbox";
 import Button from "../../components/ui/Button";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
 import { registerUser } from "../../utils/auth";
 
@@ -13,7 +12,6 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
-  const { register } = useAuth();
   const [consent, setConsent] = useState(false);
   const isDisabled = !username.trim() || !password.trim() || !email.trim() || !consent;
 
