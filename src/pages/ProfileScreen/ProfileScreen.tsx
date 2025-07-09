@@ -26,7 +26,7 @@ const ProfileScreen = () => {
     <div className="profile-screen">
       <ExitModal isOpen={showExitModal} onClose={() => setShowExitModal(false)} onCancel={() => setShowExitModal(false)} onLogout={() => handleLogout()}/>
       <ShareModal isOpen={showShareModal} onClose={() => setShowShareModal(false)} onShare={() => {
-    navigator.clipboard.writeText("https://budgetus.vercel.app")
+    navigator.clipboard.writeText("https://budgetus.app")
       .then(() => alert("Ссылка скопирована!"))
       .catch(() => alert("Ошибка копирования"));
   }} />
