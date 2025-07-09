@@ -43,12 +43,28 @@ export const loginUser = async (data: {
   export const createCategory = async (data: {
     name: string;
     icon: string;
-  }) => {
+  }, token: string) => {
+    
     return api("/category/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     });
+  };
+
+  export const getCategories = async (token: string) => {
+    const res = await fetch(`${API_URL}/category/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  
+    if (!res.ok) {
+      throw new Error("Не удалось загрузить категории");
+    }
+  
+    return res.json(); // Возвращает массив категорий
   };

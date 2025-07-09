@@ -6,48 +6,71 @@ import BottomNavBar from "../../components/BottomNavBar/BottomNavBar";
 import AddCardButton from "../../components/AddCardButton/AddCardButton";
 import { useNavigate } from "react-router-dom";
 import AddCategoryModal from "../../components/AddCategoryModal/AddCategoryModal";
-import { createCategory } from "../../utils/auth";
-import { addCategory, getCategories } from "../../utils/CategoryStore";
 import type { Category } from "../../utils/CategoryStore";
+import { useAuth } from "../../context/AuthContext";
+import { addCategory, getCategories as getCategoriesFromIndexedDB } from "../../utils/CategoryStore";
+import { createCategory as createCategoryOnServer, getCategories as getCategoriesFromServer } from "../../utils/auth";
 
 const CategoriesScreen: React.FC = () => {
     const navigate = useNavigate();
     const [showCategory, setShowCategory] = useState(false);
-
-    // Инициализация из IndexedDB
     const [categories, setCategories] = useState<Category[]>([]);
+    const { token } = useAuth();
+    // Инициализация из IndexedDB
 
     useEffect(() => {
-      getCategories().then((data) => {
-        if (data.length === 0) {
-          // если IndexedDB пуста — загрузим моковые категории
-          setCategories(categories);
-          categories.forEach(addCategory); // сохраним их в IndexedDB
-        } else {
-          setCategories(data);
+      const loadCategories = async () => {
+        try {
+          const local = await getCategoriesFromIndexedDB();
+          setCategories(local);
+  
+          if (!token) return;
+  
+          const server = await getCategoriesFromServer(token);
+          const enriched = server.map((cat) => {
+            const localMatch = local.find((c) => c.name === cat.name);
+            return {
+              name: cat.name,
+              icon: cat.icon,
+              color: localMatch?.color ?? "#b9fe66",
+            };
+          });
+  
+          // сохранить новые или обновлённые категории в IndexedDB
+          for (const category of enriched) {
+            await addCategory(category);
+          }
+  
+          setCategories(enriched);
+        } catch (error) {
+          console.error("Ошибка при загрузке категорий:", error);
         }
-      });
-    }, []);
+      };
+  
+      loadCategories();
+    }, [token]);
     
   
-    const handleAddCategory = async (newCategory: { name: string; icon: string; color: string }) => {
+    const handleAddCategory = async (newCategory: Category) => {
       if (
         newCategory.name.trim() &&
-        !categories.find((c: Category) => c.name === newCategory.name)
+        !categories.find((c) => c.name === newCategory.name)
       ) {
         try {
-          // отправляем только name и icon на сервер
-          await createCategory({
-            name: newCategory.name,
-            icon: newCategory.icon,
-          }); // API
-    
+          // только name и icon отправляем на сервер
+          await createCategoryOnServer(
+            {
+              name: newCategory.name,
+              icon: newCategory.icon,
+            },
+            token ?? ""
+          );
+  
           await addCategory(newCategory); // IndexedDB
-          setCategories((prev) => [...prev, newCategory]); // State
-          
+          setCategories((prev) => [...prev, newCategory]); // UI
         } catch (error) {
-          alert("Ошибка при создании категории");
-          console.error(error);
+          console.error("Ошибка при создании категории", error);
+          alert("Не удалось создать категорию");
         }
       }
     };
