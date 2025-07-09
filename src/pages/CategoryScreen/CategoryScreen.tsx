@@ -27,7 +27,7 @@ const CategoriesScreen: React.FC = () => {
           if (!token) return;
   
           const server = await getCategoriesFromServer(token);
-          const enriched = server.map((cat) => {
+          const enriched = server.map((cat: Category) => {
             const localMatch = local.find((c) => c.name === cat.name);
             return {
               name: cat.name,
