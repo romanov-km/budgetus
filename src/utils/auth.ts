@@ -44,7 +44,7 @@ export const loginUser = async (data: {
     name: string;
     icon: string;
   }) => {
-    return api("/category", {
+    return api("/category/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
