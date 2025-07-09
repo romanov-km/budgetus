@@ -33,8 +33,8 @@ const LoginScreen = () => {
         <h1 className="login-title">Войдите в аккаунт</h1>
 
         <form className="login-form" onSubmit={handleLogin}>
-          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setEmail(e.target.value)} required/>
-          <Input placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)} required/>
+          <Input name="email" placeholder="Имя пользователя" icon="user" onChange={(e) => setEmail(e.target.value)} required/>
+          <Input name="password" placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)} required/>
 
           <div className="login-checkbox">
           <Checkbox

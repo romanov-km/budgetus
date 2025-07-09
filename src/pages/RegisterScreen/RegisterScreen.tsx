@@ -36,9 +36,9 @@ const RegisterScreen = () => {
         <h1 className="register-title">Регистрация</h1>
 
         <form className="register-form" onSubmit={handleRegister}>
-          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setUsername(e.target.value)} required/>
-          <Input type="email" placeholder="Почта" icon="email" onChange={(e) => setEmail(e.target.value)} required/>
-          <Input placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)} required/>
+          <Input name="username" placeholder="Имя пользователя" icon="user" onChange={(e) => setUsername(e.target.value)} required/>
+          <Input name="email" type="email" placeholder="Почта" icon="email" onChange={(e) => setEmail(e.target.value)} required/>
+          <Input name="password" placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)} required/>
 
           <div className="register-checkbox">
             <Checkbox

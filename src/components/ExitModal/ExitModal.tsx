@@ -22,10 +22,11 @@ export default function ExitModal({ isOpen, onClose, onLogout, onCancel }: Props
           <h1>Выйти из аккаунта?</h1>
         </div>
 
-        <form className="exit-modal__form">
-            <Button onClick={onCancel}>Отмена</Button>
-            <Button onClick={onLogout}>Выйти</Button>
-        </form>
+        <div className="exit-modal__buttons">
+
+            <Button name="cancel" onClick={onCancel}>Отмена</Button>
+            <Button name="logout" onClick={onLogout} type="submit">Выйти</Button>
+        </div>
       </div>
     </div>
   );
