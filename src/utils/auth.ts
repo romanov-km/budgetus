@@ -44,8 +44,7 @@ export const loginUser = async (data: {
     name: string;
     icon: string;
   }, token: string) => {
-    
-    return api("/category/", {
+    const res = await fetch(`${API_URL}/category/`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -53,6 +52,8 @@ export const loginUser = async (data: {
         "Content-Type": "application/json",
       },
     });
+    if (!res.ok) throw new Error("Не удалось создать категорию");
+    return res.json();
   };
 
   export const getCategories = async (token: string) => {

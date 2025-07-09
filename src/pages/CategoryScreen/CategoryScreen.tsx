@@ -15,11 +15,13 @@ const CategoriesScreen: React.FC = () => {
     const navigate = useNavigate();
     const [showCategory, setShowCategory] = useState(false);
     const [categories, setCategories] = useState<Category[]>([]);
+    const [loading, setLoading] = useState(true);
     const { token } = useAuth();
     // Инициализация из IndexedDB
 
     useEffect(() => {
       const loadCategories = async () => {
+        setLoading(true);
         try {
           const local = await getCategoriesFromIndexedDB();
           setCategories(local);
@@ -44,6 +46,8 @@ const CategoriesScreen: React.FC = () => {
           setCategories(enriched);
         } catch (error) {
           console.error("Ошибка при загрузке категорий:", error);
+        } finally {
+          setLoading(false);
         }
       };
   
@@ -91,12 +95,17 @@ const CategoriesScreen: React.FC = () => {
         
         </div>
         <AddCardButton onClick={() => setShowCategory(true)}/>
+        {loading ? (
+  <p>Загрузка...</p>
+) : (
+  
+
         <div className="categories-screen__grid">
           {categories.map((category: Category, index: number) => (
             <CategoryCard key={index} {...category}/>
           ))}
         </div>
-  
+)}  
         <BottomNavBar />
       </div>
     );
