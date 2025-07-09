@@ -8,13 +8,6 @@ import SectionCard from "../../components/SectionCard/SectionCard";
 import Icon from "../../components/ui/Icon";
 import "./HomeScreen.scss";
 import { goals, limits } from "../../mock/mockData";
-
-interface GoalItemData {
-  iconName: string;
-  title: string;
-  subtitle: string;
-  percent: number;
-}
 import { useState } from "react";
 import AddTransactionModal from "../../components/AddTransactionModal/AddTransactionModal";
 import VoiceModal from "../../components/VoiceModal/VoiceModal";
@@ -23,6 +16,13 @@ import AttachReceiptModal from "../../components/AttachReceiptModal/AttachReceip
 import QRScanner from "../../components/QRScanner/QRScanner";
 import { useAuth } from "../../context/AuthContext";
 import { NavLink, useNavigate } from "react-router-dom";
+
+interface GoalItemData {
+  iconName: string;
+  title: string;
+  subtitle: string;
+  percent: number;
+}
 
 const MainScreen = () => {
   const [showModal, setShowModal] = useState(false);
@@ -46,7 +46,6 @@ const MainScreen = () => {
           }}
           onClose={() => setShowQRScanner(false)}
         />
-        
       )}
       <AddTransactionModal
         isOpen={showModal}
@@ -70,17 +69,18 @@ const MainScreen = () => {
       />
       <header className="main-screen__header">
         <Avatar src="/icons/avatar.svg" size={53}></Avatar>
-        <h1 className="main-screen__greeting">Привет, {user?.name ?? 'гость'}</h1>
+        <h1 className="main-screen__greeting">
+          Привет, {user?.username}
+        </h1>
         <div className="main-screen__icons">
           <button className="icon-button">
             <Icon name="settings" />
           </button>
           <NavLink to="/notification">
-          <button className="icon-button">
-            <Icon name="bell" />
-          </button>
+            <button className="icon-button">
+              <Icon name="bell" />
+            </button>
           </NavLink>
-          
         </div>
       </header>
 
@@ -89,13 +89,13 @@ const MainScreen = () => {
           bankName="СБЕР БАНК"
           amount="30 000 ₽"
           actionIcon={<Icon name="arrow-up-right" />}
-          onClick={() => navigate('/operations')}
+          onClick={() => navigate("/operations")}
         />
         <AddCardButton onClick={() => setShowCardModal(true)} />
       </section>
 
       <div className="main-screen__quick-actions">
-      <ActionButton
+        <ActionButton
           icon={<Icon name="scan-qr-code" size={18} />}
           label="скан QR кода чека"
           onClick={() => setShowQRScanner(true)}
@@ -110,7 +110,7 @@ const MainScreen = () => {
           label="голосовой ввод"
           onClick={() => setShowVoiceModal(true)}
         />
-        
+
         <ActionButton
           icon={<Icon name="attach" size={18} />}
           label="прикрепить чек"
@@ -121,27 +121,25 @@ const MainScreen = () => {
         <SectionCard
           title="Цели"
           bgColor="lime"
-          onClick={() => navigate('/goalandlimit')}
+          onClick={() => navigate("/goalandlimit")}
         >
           {goals.map((goal, index) => (
             <GoalItem key={index} {...goal} />
           ))}
         </SectionCard>
-      
+
         <SectionCard
           title="Лимиты"
           bgColor="dark"
-          onClick={() => navigate('/goalandlimit')}
+          onClick={() => navigate("/goalandlimit")}
         >
-          {limits.length > 0 && limits.map((limit: GoalItemData, index) => (
-            <GoalItem key={index} {...limit} />
-          ))}
+          {limits.length > 0 &&
+            limits.map((limit: GoalItemData, index) => (
+              <GoalItem key={index} {...limit} />
+            ))}
         </SectionCard>
-        
       </div>
 
-      
-        
       <BottomNavBar />
     </div>
   );

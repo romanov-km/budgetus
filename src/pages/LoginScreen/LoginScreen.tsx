@@ -9,14 +9,14 @@ import { useState } from "react";
 
 const LoginScreen = () => {
   const navigate = useNavigate();
-  const {login} = useAuth();
-  const [username, setUsername] = useState('');
+  const { login } = useAuth();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const isDisabled = !username.trim() || !password.trim();
+  const isDisabled = !email.trim() || !password.trim();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = login(username, password);
+    const success = await login(email, password);
     if (success) {
       navigate('/home');   
     } else {
@@ -33,7 +33,7 @@ const LoginScreen = () => {
         <h1 className="login-title">Войдите в аккаунт</h1>
 
         <form className="login-form" onSubmit={handleLogin}>
-          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setUsername(e.target.value)} required/>
+          <Input placeholder="Имя пользователя" icon="user" onChange={(e) => setEmail(e.target.value)} required/>
           <Input placeholder="Пароль" icon="" toggleablePassword onChange={(e) => setPassword(e.target.value)} required/>
 
           <div className="login-checkbox">
@@ -43,7 +43,7 @@ const LoginScreen = () => {
           />
           </div>
 
-          <Button variant="primary" disabled={isDisabled}>Войти</Button>
+          <Button variant="primary" disabled={isDisabled} type="submit">Войти</Button>
 
           <div className="login-footer">
             <span>Нет аккаунта?</span>

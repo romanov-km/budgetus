@@ -6,6 +6,7 @@ import Button from "../../components/ui/Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useState } from "react";
+import { registerUser } from "../../utils/auth";
 
 const RegisterScreen = () => {
   const [username, setUsername] = useState('');
@@ -16,14 +17,14 @@ const RegisterScreen = () => {
   const [consent, setConsent] = useState(false);
   const isDisabled = !username.trim() || !password.trim() || !email.trim() || !consent;
 
-  const handleRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    const success = register({ username, email, password });
-    if (success) {
-      navigate("/home");
-    } else {
-      alert("Пользователь с таким именем или почтой уже существует");
+  
+    try {
+      await registerUser({ username, email, password });
+      navigate("/login");
+    } catch (err: any) {
+      alert("Ошибка регистрации: " + err.message);
     }
   };
 

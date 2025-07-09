@@ -39,8 +39,8 @@ const ProfileScreen = () => {
 
       <div className="profile-screen__user">
         <Avatar src="/icons/avatar.svg" size={96} />
-        <div className="profile-screen__name">{user?.name ?? 'гость'}</div>
-        <div className="profile-screen__email">{user?.email ?? 'email'}</div>
+        <div className="profile-screen__name">{user?.username}</div>
+        <div className="profile-screen__email">{user?.email}</div>
       </div>
 
       <div className="profile-screen__actions">

@@ -1,107 +1,75 @@
-import { createContext, useContext, useState,  } from "react";
-import type { ReactNode } from "react";
-import { mockUsers } from "../mock/mockData";
+import { createContext, useContext, useEffect, useState } from "react";
+import { getMe, loginUser } from "../utils/auth";
 
-type User = {
+interface User {
   username: string;
-  name: string;
   email: string;
-  password: string;
-};
+  id: number;
+}
 
-type AuthContextType = {
-  isAuth: boolean;
+interface AuthContextType {
+  token: string | null;
   user: User | null;
-  login: (username: string, password: string) => boolean;
+  isAuth: boolean;
+  login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
-  register: (data: { username: string; email: string; password: string }) => boolean;
-};
+}
 
 const AuthContext = createContext<AuthContextType>({
-  isAuth: false,
+  token: null,
   user: null,
-  login: () => false,
+  isAuth: false,
+  login: async () => false,
   logout: () => {},
-  register: () => false,
 });
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [isAuth, setIsAuth] = useState<boolean>(() => {
-    return localStorage.getItem("isAuth") === "true";
-  });
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [token, setToken] = useState<string | null>(
+    localStorage.getItem("token")
+  );
+  const [user, setUser] = useState<User | null>(null);
+  const isAuth = !!token;
 
-  const [user, setUser] = useState<User | null>(() => {
-    const stored = localStorage.getItem("user");
-    return stored ? JSON.parse(stored) : null;
-  });
-
-  const getStoredUsers = (): User[] => {
-    const stored = localStorage.getItem("users");
-    const localUsers: User[] = stored ? JSON.parse(stored) : [];
-    return [...mockUsers, ...localUsers];
-  };
-
-  const login = (username: string, password: string): boolean => {
-    const users = getStoredUsers();
-    const foundUser = users.find(
-      (user) => user.username === username && user.password === password
-    );
-  
-    if (foundUser) {
-      setIsAuth(true);
-      setUser(foundUser);
-      localStorage.setItem("isAuth", "true");
-      localStorage.setItem("user", JSON.stringify(foundUser));
+  const login = async (email: string, password: string): Promise<boolean> => {
+    try {
+      const response = await loginUser({ username:email, password });
+      setToken(response.access_token);
+      localStorage.setItem("token", response.access_token);
+      const userData = await getMe(response.access_token);
+      setUser(userData);
       return true;
+    } catch (err) {
+      console.error("Ошибка входа:", err);
+      return false;
     }
-  
-    return false;
-  };
-
-  const register = ({
-    username,
-    email,
-    password,
-  }: {
-    username: string;
-    email: string;
-    password: string;
-  }): boolean => {
-    const users = getStoredUsers();
-  
-    const exists = users.some(
-      (user) => user.username === username || user.email === email
-    );
-  
-    if (exists) return false;
-  
-    const newUser: User = {
-      username,
-      name: username, // можно заменить потом
-      email,
-      password,
-    };
-  
-    const updatedUsers = [...users, newUser];
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-  
-    setIsAuth(true);
-    setUser(newUser);
-    localStorage.setItem("isAuth", "true");
-    localStorage.setItem("user", JSON.stringify(newUser));
-  
-    return true;
   };
 
   const logout = () => {
-    setIsAuth(false);
+    setToken(null);
     setUser(null);
-    localStorage.removeItem("isAuth");
-    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   };
 
+  useEffect(() => {
+    const initialize = async () => {
+      const storedToken = localStorage.getItem("token");
+      if (storedToken) {
+        try {
+          setToken(storedToken);
+          const userData = await getMe(storedToken);
+          setUser(userData);
+        } catch (err) {
+          console.error("Автологин не удался", err);
+          logout(); // если токен недействителен — выходим
+        }
+      }
+    };
+  
+    initialize();
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ isAuth, login, logout, user, register }}>
+    <AuthContext.Provider value={{ token, isAuth, login, logout, user }}>
       {children}
     </AuthContext.Provider>
   );
