@@ -43,6 +43,7 @@ export const loginUser = async (data: {
   export const createCategory = async (data: {
     name: string;
     icon: string;
+    color: string;
   }, token: string) => {
     const res = await fetch(`${API_URL}/category/`, {
       method: "POST",

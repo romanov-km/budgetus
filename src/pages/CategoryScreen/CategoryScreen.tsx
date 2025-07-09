@@ -61,11 +61,11 @@ const CategoriesScreen: React.FC = () => {
         !categories.find((c) => c.name === newCategory.name)
       ) {
         try {
-          // только name и icon отправляем на сервер
           await createCategoryOnServer(
             {
               name: newCategory.name,
               icon: newCategory.icon,
+              color: newCategory.color,
             },
             token ?? ""
           );
