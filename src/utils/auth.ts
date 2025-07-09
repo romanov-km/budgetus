@@ -40,3 +40,15 @@ export const loginUser = async (data: {
     return res.json();
   };
   
+  export const createCategory = async (data: {
+    name: string;
+    icon: string;
+  }) => {
+    return api("/category", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };

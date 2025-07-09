@@ -3,37 +3,52 @@ import "./CategoryScreen.scss";
 import Icon from "../../components/ui/Icon";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import BottomNavBar from "../../components/BottomNavBar/BottomNavBar";
-import { mockCategories } from "../../mock/mockData";
 import AddCardButton from "../../components/AddCardButton/AddCardButton";
 import { useNavigate } from "react-router-dom";
 import AddCategoryModal from "../../components/AddCategoryModal/AddCategoryModal";
-
-type Category = {
-  name: string;
-  icon: string;
-  color: string;
-};
+import { createCategory } from "../../utils/auth";
+import { addCategory, getCategories } from "../../utils/CategoryStore";
+import type { Category } from "../../utils/CategoryStore";
 
 const CategoriesScreen: React.FC = () => {
     const navigate = useNavigate();
     const [showCategory, setShowCategory] = useState(false);
 
-    // Инициализация из моков или localStorage
-    const [categories, setCategories] = useState(() => {
-      const stored = localStorage.getItem("categories");
-      return stored ? JSON.parse(stored) : mockCategories;
-    });
+    // Инициализация из IndexedDB
+    const [categories, setCategories] = useState<Category[]>([]);
 
     useEffect(() => {
-      localStorage.setItem("categories", JSON.stringify(categories));
-    }, [categories]);
+      getCategories().then((data) => {
+        if (data.length === 0) {
+          // если IndexedDB пуста — загрузим моковые категории
+          setCategories(categories);
+          categories.forEach(addCategory); // сохраним их в IndexedDB
+        } else {
+          setCategories(data);
+        }
+      });
+    }, []);
+    
   
-    const handleAddCategory = (newCategory: { name: string; icon: string }) => {
+    const handleAddCategory = async (newCategory: { name: string; icon: string; color: string }) => {
       if (
         newCategory.name.trim() &&
         !categories.find((c: Category) => c.name === newCategory.name)
       ) {
-        setCategories([...categories, newCategory]);
+        try {
+          // отправляем только name и icon на сервер
+          await createCategory({
+            name: newCategory.name,
+            icon: newCategory.icon,
+          }); // API
+    
+          await addCategory(newCategory); // IndexedDB
+          setCategories((prev) => [...prev, newCategory]); // State
+          
+        } catch (error) {
+          alert("Ошибка при создании категории");
+          console.error(error);
+        }
       }
     };
     
