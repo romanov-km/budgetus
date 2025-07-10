@@ -5,7 +5,9 @@ import Button from "../ui/Button";
 import Icon from "../ui/Icon";
 import { bankOptions } from "../../mock/mockData";
 import { useTransactions } from "../../context/TransactionContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useCategories } from "../../utils/hooks/useCategories";
+
 
 interface Props {
   isOpen: boolean;
@@ -19,15 +21,7 @@ export default function AddTransactionModal({ isOpen, onClose }: Props) {
   const [date, setDate] = useState<string>("");
   const [amount, setAmount] = useState("");
   const [type, setType] = useState<"Доход" | "Расход">("Расход");
-  const [categories, setCategories] = useState<{ name: string }[]>([]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("categories");
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      setCategories(parsed);
-    }
-  }, []);
+  const { categories, loading } = useCategories();
 
   if (!isOpen) return null;
 
@@ -64,23 +58,27 @@ export default function AddTransactionModal({ isOpen, onClose }: Props) {
             onChange={(e) => setSelectedBank(e.target.value)}
             required
           />
+          {loading ? (
+            <p>Загрузка...</p>
+          ) : (
+            <Select
+              label="Название категории"
+              options={categories.map((cat) => ({
+                label: cat.name,
+                value: cat.name,
+              }))}
+              name="category"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              required
+            />
+          )}
 
-          <Select
-            label="Название категории"
-            options={categories.map((cat) => ({
-              label: cat.name,
-              value: cat.name,
-            }))}
-            name="category"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            required
-          />
           <Select
             label="Тип операции"
             options={[
               { label: "Доход", value: "Доход" },
-              { label: "Расход", value: "Расход" }
+              { label: "Расход", value: "Расход" },
             ]}
             name="type"
             value={type}

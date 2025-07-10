@@ -14,10 +14,12 @@ import NotificationsScreen from "./pages/NotificationsScreen/NotificationsScreen
 import OperationsScreen from "./pages/OperationScreen/OperationScreen";
 import { TransactionProvider } from "./context/TransactionContext";
 import GoalAndLimitScreen from "./pages/GoalAndLimitsScreen/GoalAndLimitScreen";
+import { CategoryProvider } from "./context/CategoryContext";
 
 function App() {
   return (
     <AuthProvider>
+      <CategoryProvider>
       <TransactionProvider>
         <BrowserRouter>
           <InstallPrompt />
@@ -36,8 +38,9 @@ function App() {
             </Route>
             <Route path="*" element={<LoginScreen />} />
           </Routes>
-        </BrowserRouter>
-      </TransactionProvider>
+          </BrowserRouter>
+        </TransactionProvider>
+      </CategoryProvider>
     </AuthProvider>
   );
 }

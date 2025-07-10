@@ -35,7 +35,7 @@ const LoginScreen = () => {
         <form className="login-form" onSubmit={handleLogin}>
           <Input
             name="email"
-            placeholder="Имя пользователя"
+            placeholder="Почта"
             icon="user"
             onChange={(e) => setEmail(e.target.value)}
             required

@@ -30,11 +30,11 @@ const CategoriesScreen: React.FC = () => {
   
           const server = await getCategoriesFromServer(token);
           const enriched = server.map((cat: Category) => {
-            const localMatch = local.find((c) => c.name === cat.name);
+          
             return {
               name: cat.name,
               icon: cat.icon,
-              color: localMatch?.color ?? "#b9fe66",
+              color: cat.color,
             };
           });
   
