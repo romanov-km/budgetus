@@ -15,10 +15,12 @@ import OperationsScreen from "./pages/OperationScreen/OperationScreen";
 import { TransactionProvider } from "./context/TransactionContext";
 import GoalAndLimitScreen from "./pages/GoalAndLimitsScreen/GoalAndLimitScreen";
 import { CategoryProvider } from "./context/CategoryContext";
+import { Analytics} from "@vercel/analytics/react"
 
 function App() {
   return (
     <AuthProvider>
+      <Analytics />
       <CategoryProvider>
       <TransactionProvider>
         <BrowserRouter>
